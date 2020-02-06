@@ -1,0 +1,27 @@
+{% assign data_file = include.data | default: site.data.accordion %}
+{% assign uid = "-" | append: include.uid %}
+{% assign accordion_id = "accordion" | append: uid %}
+
+<!-- ACCORDION -->
+<div class="accordion mb-5" id="{{ accordion_id }}">
+	{% for item in data_file %}
+
+		{% assign id = item.title | append: uid | slugify %}
+
+		<div class="card">
+			<div class="card-header" id="heading-{{forloop.index}}">
+				<h3 class="mb-0">
+					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="true" aria-controls="#{{ id }}">
+						<span class="text">{{ item.title }}</span>
+						<i class="fa fa-angle-up"></i>
+					</button>
+				</h3>
+			</div>
+			<div id="{{ id }}" class="collapse" aria-labelledby="heading-{{forloop.index}}" data-parent="#{{ accordion_id }}">
+				<div class="card-body">
+					{{ item.body | markdownify }}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

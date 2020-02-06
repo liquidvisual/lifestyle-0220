@@ -1,0 +1,36 @@
+{% assign columns = include.columns | default: 3 %}
+{% assign posts = site.data.lorem_ipsum %}
+
+{% capture column_classes %}
+	{% if columns == 4 %}
+		col-md-6 col-xl-3
+	{% elsif columns == 3 %}
+		col-md-6 col-lg-4
+	{% else %}
+		col-md-6 col-lg-6
+	{% endif %}
+{% endcapture %}
+
+<!-- TABS -->
+<nav class="btn-tabs nav mb-4" role="tablist">
+	{% for i in (1..3) %}
+		<a href="#tab-group-{{i}}" class="btn-tab {% if forloop.first %} active {% endif %}" data-toggle="tab" role="tab">Tab Group {{i}}</a>
+	{% endfor %}
+</nav>
+
+<!-- TAB CONTENT -->
+<div class="tab-content mb-4">
+	{% for i in (1..3) %}
+		<div id="tab-group-{{i}}" class="tab-pane fade {% if forloop.first %} active show {% endif %}" role="tabpanel">
+			<div class="row">
+
+				{% for item in posts | limit: columns | offset: 5 %}
+					<div class="{{ column_classes }} mb-4">
+						{% include components/cards/card.html %}
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	{% endfor %}
+</div>

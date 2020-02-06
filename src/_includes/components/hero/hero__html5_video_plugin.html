@@ -1,0 +1,55 @@
+{% comment %}
+<!--
+    HTML5 VIDEO PLUGIN
+
+    - Updated: 11.06.19
+    - Notes: This acts as a plugin for the hero component.
+             Each slide item can render an iframe but the inline script is only rendered ONCE.
+-->
+{% endcomment %}
+
+{% assign src = include.src %}
+
+<!-- HTML5 VIDEO PLUGIN - video should be 16:9 -->
+<div class="video-bg">
+    <div class="video-fg">
+
+        <!-- HTML5 VIDEO -->
+        <video
+            autoplay
+            loop
+            muted
+            hidden
+            poster="false"
+        >
+            <source src data-src="/assets/video/video-1.ogv" type="video/ogv">
+            <source src data-src="/assets/video/video-1.webm" type="video/webm">
+            <source src data-src="/assets/video/video-1.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+{% unless html5_video_script_included_once %}
+    {% assign html5_video_script_included_once = true  %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                var videoBG = document.querySelectorAll('.video-bg video');
+
+                // update sources dynamically
+                videoBG.forEach(function(item) {
+                    item.querySelectorAll('video > source[data-src]').forEach(function(item) {
+                        item.src = item.dataset.src;
+                    });
+                    item.onloadeddata = function() {
+                       item.hidden = false;
+                    };
+                    item.load(); // for Chrome
+                });
+            } catch(err) {
+                console.warn('Eek! Video error.')
+            }
+        });
+    </script>
+{% endunless %}

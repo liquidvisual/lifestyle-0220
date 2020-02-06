@@ -1,0 +1,44 @@
+{% assign posts = site.data.lorem_ipsum %}
+{% assign title = include.title | default: "Latest Blogs &amp; News" %}
+{% assign classes = include.classes %}
+
+<!-- LATEST FROM THE BLOG -->
+<section class="section {{ classes }}">
+	<div class="container">
+
+		<!-- HEADER -->
+		<div class="mb-4">
+			<div class="row align-items-center">
+				<div class="col-md-8">
+
+					<!-- HEADING -->
+					<h2 class="text-uppercase mb-2">
+						{{ title }}
+					</h2>
+
+				</div>
+				<div class="col-md-4 text-md-right">
+
+					<!-- MORE BLOG POSTS -->
+					<a class="font-weight-bold text-link text-uppercase text-body" href="/blog/">
+						More Blogs &amp; News <i class="fa fa-angle-right"></i>
+					</a>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- SPACER -->
+		<div class="spacer mb-3"></div>
+
+		<!-- CARDS -->
+		<div class="row spec-col-condense">
+			{% for item in posts limit: 4 %}
+				<div class="col-md-6 col-xl-3">
+					{% include components/cards/card.html %}
+				</div>
+			{% endfor %}
+		</div>
+
+	</div>
+</section>

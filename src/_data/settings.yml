@@ -1,0 +1,32 @@
+# GLOBAL SETTINGS
+cname: lifestyle.yourwebvisual.com
+allow_robots: false
+
+# META
+title: Lifestyle Coffins
+title_homepage: Lifestyle Coffins | Personalised Coffins for Funeral Services
+company: Lifestyle Coffins
+description:
+
+# DEVELOPER
+github_repo_owner: liquidvisual
+github_repo_path: https://github.com/liquidvisual/lifestyle-0220
+github_repo_name: lifestyle-0220
+jekyll_version: 3.8.5
+
+offices:
+  aus:
+    - city: All
+      phone: 1800 095 029
+      fax:
+      email: example@email.com
+
+# GOOGLE
+google_analytics: #UA-XXXXXXXX-X
+
+# AUTHOR
+author:
+  title: Much Media
+  url: https://www.muchmedia.com.au
+  logo: /assets/img/ui/much-media-logo.svg
+  description: Website by Much Media

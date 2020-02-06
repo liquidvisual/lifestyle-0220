@@ -1,0 +1,85 @@
+/*
+    CARD.CSS
+
+    - Last updated: 10.04.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// CARD
+//-----------------------------------------------------------------
+
+.card {
+    // box-shadow: 0px 5px 21px rgba(0, 0, 0, 0.14);
+
+    @include media-breakpoint-up(xl) {
+        font-size: rem-calc(14); // 50/50 on this
+    }
+
+    time {
+        color: #929191; // TODO: var this;
+        font-size: rem-calc(13); //14  what controls this?
+        font-weight: $font-weight-bold;
+    }
+
+    .card-body {
+        padding: rem-calc(46);
+    }
+
+    &.is-flat {
+    	box-shadow: none;
+
+    	.card-body {
+    		padding: rem-calc(30 15 0 0);
+    	}
+    }
+
+    .card-title .fa-angle-right {
+        position: relative;
+        top: 2px;
+        font-size: rem-calc(30);
+        line-height: 0;
+        color: #b0b9c5;
+    }
+
+    .btn { // ** NEW **
+        // position: absolute;
+        // bottom: 0;
+        // right: 0;
+        // padding: rem-calc(10 15 7 15);
+        // min-width: rem-calc(150);
+        // font-size: rem-calc(11);
+        // font-weight: $font-weight-normal;
+        // text-align: left;
+
+        // .fa {
+        //     position: relative;
+        //     top: -2px;
+        //     font-size: rem-calc(16);
+        //     line-height: 1;
+        // }
+    }
+}
+
+.card:not(.is-flat) {
+    background: $tertiary;
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.is-primary .card {
+    time {
+        color: rgba(white, 0.25);
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

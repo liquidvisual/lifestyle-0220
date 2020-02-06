@@ -1,0 +1,62 @@
+{% assign settings = site.data.settings %}
+{% assign logo = page.logo | default: "/assets/img/content/logo@2x.png" %}
+{% assign sitemap = site.data.sitemap %}
+
+<!-- FOOTER BODY -->
+<section class="global-footer-body">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-4 text-center">
+
+				<!-- LOGO -->
+				<div class="mb-5">
+					<a class="logo d-inline-block" href="/" title="{{ settings.title_homepage }}" itemprop="url">
+					    <img width="100%" src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- SUBSCRIBE FORM -->
+		<div class="row justify-content-center mb-4">
+			<div class="col-md-8 col-lg-6 col-xl-5">
+				<div class="px-xl-4">
+					{% include components/forms/form_subscribe.html %}
+				</div>
+			</div>
+		</div>
+
+		<!-- NAV -->
+		<div class="row">
+			<div class="col text-center">
+				<div class="lv-nav d-inline-block">
+					{% include components/navigation/nav.html data=site.data.sitemap %}
+				</div>
+			</div>
+		</div>
+
+	</div> <!-- /.container -->
+</section>
+
+<!-- FOOTER BOTTOM -->
+<section class="global-footer-bottom">
+    <div class="container">
+
+    	<!-- BACK TO TOP -->
+    	<div class="text-center text-md-right hidden-xs-down">
+    		<button data-back-top class="btn-back-top">
+    			<div>
+    				<i class="d-block fa fa-angle-up"></i>
+    				<span class="text">TOP</span>
+    			</div>
+    		</button>
+    	</div>
+
+		<!-- SOCIAL MEDIA -->
+		<div class="text-center">
+			{% include components/widgets/social_media.html %}
+		</div>
+
+    </div>
+</section>

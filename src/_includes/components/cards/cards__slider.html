@@ -1,0 +1,42 @@
+{% assign columns = include.columns | default: 2 %}
+{% assign posts = site.data.lorem_ipsum %}
+
+{% capture cell_grouping %}
+    {% if columns == 4 %}
+        group-by-four
+	{% elsif columns == 3 %}
+		group-by-three
+	{% else %}
+		group-by-two
+	{% endif %}
+{% endcapture %}
+
+<!-- CARD SLIDER -->
+<div class="card-slider mb-4"
+	data-card-slider
+	data-flickity='
+    {
+        "adaptiveHeight": false,
+        "autoPlay": false,
+        "cellAlign": "left",
+        "contain": true,
+        "draggable": ">1",
+        "dragThreshold": 40,
+        "freeScroll": true,
+        "freeScrollFriction": 0.075,
+        "friction": 0.28,
+        "groupCells": true,
+        "imagesLoaded": true,
+        "pageDots": false,
+        "prevNextButtons": true,
+        "pauseAutoPlayOnHover": false,
+        "selectedAttraction": 0.025,
+        "watchCSS": false,
+        "wrapAround": false
+    }'>
+	{% for item in posts | limit: 8 %}
+		<div class="card-cell {{ cell_grouping }}">
+			{% include components/cards/card.html %}
+		</div>
+	{% endfor %}
+</div>

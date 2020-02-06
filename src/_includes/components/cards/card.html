@@ -1,0 +1,64 @@
+{% assign is_flat = include.flat | default: false %}
+
+{% capture header_class %}
+	{% if columns == 4 %}
+		h4
+	{% else %}
+		h4
+	{% endif %}
+{% endcapture %}
+
+{% capture card_options %}
+	{% if is_flat %}
+		is-flat
+	{% endif %}
+{% endcapture %}
+
+<!-- CARD -->
+<div class="card h-100 {{ card_options }}">
+
+	<!-- IMAGE -->
+	<a class="btn-tile mb-2" href="{{ item.url }}">
+		<img width="100%" class="card-img-top" src="/assets/img/layout/thumb-sizer--480x288.svg" alt="{{ item.title }}">
+		<span class="btn-tile-bg" style="background-image: url({{ item.image }})"></span>
+	</a>
+
+	<!-- CARD BODY -->
+	<div class="card-body d-flex flex-column">
+
+		{% comment %}
+		{% if item.categories %}
+			<!-- TAGS / CATEGORIES -->
+			<small class="d-block text-uppercase mb-2">
+				<i class="fa fa-tags text-muted">&nbsp;</i>
+				{% for item in item.categories %}
+					<a href="#">{{ item.title }}</a>{% unless forloop.last %}, {% endunless %}
+				{% endfor %}
+			</small>
+		{% endif %}
+		{% endcomment %}
+
+		<!-- TITLE -->
+		<a class="text-dark" href="{{ item.url }}">
+			<h3 class="font-weight-bolder card-title {{ header_class }}">{{ item.title }}</h3>
+		</a>
+
+		{% if item.date %}
+			<!-- DATE + AUTHOR -->
+			<small class="mb-3">
+				<time class="text-uppercase mr-1" datetime="{{ item.date | date_to_xmlschema }}">{{ item.date }}</time>
+			</small>
+		{% endif %}
+
+		<!-- TEXT -->
+		<div class="card-text mb-5">
+			{{ item.body | truncate: 150 }}
+		</div>
+
+		<!-- BUTTON -->
+		<a href="{{ item.url }}" class="text-uppercase btn btn-primary">
+			Read more <i class="fa fa-angle-right ml-auto"></i>
+		</a>
+
+	</div>
+</div>

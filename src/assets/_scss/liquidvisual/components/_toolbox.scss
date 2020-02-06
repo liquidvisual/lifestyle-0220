@@ -1,0 +1,89 @@
+/*
+	TOOLBOX.CSS
+
+	- updated: 18.03.18
+	- liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------
+
+$include-developer-styles: true !default;
+
+//-----------------------------------------------------------------
+// FONT SMOOTHING
+//-----------------------------------------------------------------
+
+body {
+	 // -webkit-font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+	         // font-smoothing: antialised;
+}
+
+//-----------------------------------------------------------------
+// Text Selection (keep separate)
+//-----------------------------------------------------------------
+
+::-moz-selection {
+	background: lighten($primary, 10%);
+	color: white;
+	text-shadow: none;
+}
+
+::selection {
+	background: lighten($primary, 10%);
+	color: white;
+	text-shadow: none;
+}
+
+//-----------------------------------------------------------------
+// Helper Classes
+//-----------------------------------------------------------------
+//=========================================
+// Prevent Flicker on Webkit
+//=========================================
+
+.lv-no-flicker {
+	-webkit-transition: translate3d(0,0,0);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-webkit-transform-style: preserve-3d;
+}
+
+//=========================================
+// Unselectable Elements
+//=========================================
+
+.lv-unselectable,
+.lv-unselectable * {
+-webkit-touch-callout: none;
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+       -o-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+//-----------------------------------------------------------------
+// Developer Mode - Foundation Grid Highlighting
+//
+// Usage: <body class="developer">
+//-----------------------------------------------------------------
+
+@if $include-developer-styles {
+	.developer .container { background-color: lighten(#6AE1CC, 10%) !important; }
+	.developer .row:nth-child(odd) { background-color: #6AE1CC !important; }
+	.developer .row:nth-child(even),
+	.developer > .row:nth-child(odd) { background-color: #61CFBC !important; }
+	.developer .columns { background-color: #46B0FB !important; border-right: 1px solid white; }
+	.developer [class^='col-'] { background-color: #46B0FB !important; border: 1px dashed white; }
+	.developer hr { border-bottom: 1px solid yellow !important; }
+
+	body .fill-1 { background-color: #E94144; }
+	body .fill-2 { background-color: #46B0FB; }
+	body .fill-3 { background-color: #6AE1CC; }
+	body .fill-4 { background-color: #FECB6D; }
+	body .fill-5 { background-color: #E7E7E7; }
+	body .fill-6 { background-color: #61CFBC; }
+}

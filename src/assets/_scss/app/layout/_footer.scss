@@ -1,0 +1,148 @@
+/*
+    FOOTER.CSS
+
+    - Last updated: 03.07.19
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// FOOTER
+//-----------------------------------------------------------------
+
+.global-footer {
+	// position: relative; // [LOCKED] - for bg fill
+	// background: $secondary linear-gradient(-180deg, darken($secondary, 5%) -90%, $secondary 100%);
+
+	// ANY LINKS
+	a:hover {
+		opacity: 0.8;
+	}
+}
+
+//-----------------------------------------------------------------
+// FOOTER BODY
+//-----------------------------------------------------------------
+
+.global-footer-body {
+	position: relative;
+	background: $tertiary;
+
+	> .container { // [LOCKED] - consistent with sitemap
+		padding-top: $spacer*2.5;
+		padding-bottom: $spacer*2.5;
+
+		@include media-breakpoint-up(md) {
+		    padding-top: rem-calc(50); //$spacer*2.5;
+		    padding-bottom: rem-calc(50); //$spacer*2.5;
+		}
+	}
+
+	// LOGO
+	.logo img {
+		width: rem-calc(313);
+		max-width: 100%;
+	}
+
+	// ICONS
+	.fa.mr-2 {
+		font-size: rem-calc(20);
+		min-width: rem-calc(20);
+		text-align: center;
+	}
+
+	// TEXT
+	p, a {
+		font-size: rem-calc(17);
+		color: white;
+	}
+}
+
+//-----------------------------------------------------------------
+// FOOTER BOTTOM
+//-----------------------------------------------------------------
+
+.global-footer-bottom {
+	padding: rem-calc(46 0); // PSD
+	font-size: rem-calc(14);
+	background: $primary; //darken($secondary, 5%);
+
+	// SITEMAP LINK
+	a {
+		color: rgba(white, 0.5);
+
+		.fa-angle-down {
+			font-size: rem-calc(20);
+			line-height: 0;
+			transition: transform 400ms ease;
+
+			&.active { // arrow on sitemap
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.author-logo {
+		display: inline-flex; // [LOCKED] - aligns icon
+		align-items: center;
+		font-size: rem-calc(11);
+		font-weight: 400;
+		color: rgba(white, 0.9);
+
+		img {
+			opacity: 0.8;
+		}
+
+		.text {
+			opacity: 0.3;
+		}
+	}
+
+	//=========================================
+	// BLEED TO BOTTOM [LOCKED]
+	//=========================================
+
+	&:after {
+		content: "";
+		position: fixed;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: inherit;
+		z-index: -1;
+	}
+}
+
+//-----------------------------------------------------------------
+// FOOTER SITEMAP
+//-----------------------------------------------------------------
+
+.global-footer-sitemap {
+	background: darken($secondary, 10%);
+	padding: $spacer*2 0;
+	transition: height ease 300ms, padding ease 300ms;
+
+	h1, h2, h3, h4, h5, h6 {
+		color: $primary;
+	}
+
+	a {
+		color: rgba(white, 0.5);
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	&.is-collapsed {
+		padding: 0;
+		height: 0;
+		overflow: hidden;
+		transition: padding ease 300ms;
+	}
+}
+
+//=========================================
+//
+//=========================================

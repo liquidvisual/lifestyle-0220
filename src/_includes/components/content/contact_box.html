@@ -1,0 +1,93 @@
+{% assign po_box = include.po_box %}
+
+{% capture cols %}
+    {% if po_box %}
+        col-md-6
+    {% else %}
+        col-xxl-6
+    {% endif %}
+{% endcapture %}
+
+<!-- SIDEBOX -->
+<div class="sidebox mb-md-1" data-equal-height>
+
+    {% unless po_box %}
+
+        <!-- HEADING -->
+        <a href="/contact/contact-item/">
+            <h3 class="sidebox-header h5 text-uppercase mb-3">
+                {{ item.city }}
+                {% if item.head_office %}
+                    <small class="spec-small font-weight-bold">(Head Office)</small>
+                {% endif %}
+                <i class="fa fa-angle-right"></i>
+            </h3>
+        </a>
+    {% endunless %}
+
+    <!-- BODY -->
+    <div class="sidebox-body">
+
+        <!-- ADDRESS -->
+        <p class="mb-3">
+            <span class="d-inline-flex align-items-start">
+                <i class="fa fa-map-marker mr-2"></i>
+                <span class="text">{{ item.address }}</span>
+            </span>
+        </p>
+
+        {% comment %}
+        {% if po_box %}
+            <!-- PO BOX -->
+            <p class="mb-3">
+                <span class="d-inline-flex align-items-start">
+                    <i class="fa fa-truck mr-2"></i>
+                    <span class="text">{{ item.po_box }}</span>
+                </span>
+            </p>
+        {% endif %}
+        {% endcomment %}
+
+        <div class="row">
+            <div class="{{ cols }}">
+
+                <!-- PHONE -->
+                <p class="mb-3">
+                    <a class="d-inline-flex align-items-center" href="tel:{{ item.phone }}">
+                        <i class="fa fa-phone mr-2"></i>
+                        <span class="text">{{ item.phone }}</span>
+                    </a>
+                </p>
+
+                <!-- FAX -->
+                <p class="mb-3">
+                    <a class="d-inline-flex align-items-center" href="tel:{{ item.fax }}">
+                        <i class="fa fa-fax mr-2"></i>
+                        <span class="text">{{ item.fax }}</span>
+                    </a>
+                </p>
+
+            </div>
+            <div class="{{ cols }}">
+
+                <!-- VIEW MAP -->
+                <p class="mb-3">
+                    <a class="d-inline-flex align-items-center" href="/contact/contact-item/">
+                        <i class="fa fa-map mr-2"></i>
+                        <span class="text">View map <i class="fa fa-angle-right"></i></span>
+                    </a>
+                </p>
+
+                <!-- GET DIRECTIONS -->
+                <p class="mb-3">
+                    <a class="d-inline-flex align-items-center" href="/contact/contact-item/">
+                        <i class="fa fa-location-arrow mr-2"></i>
+                        <span class="text">Get directions <i class="fa fa-angle-right"></i></span>
+                    </a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</div>

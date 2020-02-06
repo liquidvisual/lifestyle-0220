@@ -1,0 +1,119 @@
+/*
+    LISTS.CSS
+
+    - Last updated: 03.07.17
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// LISTS
+//-----------------------------------------------------------------
+
+.block-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+        border-bottom: 1px solid #ccc;
+        padding: rem-calc(30 0);
+    }
+
+    // Prevent gaps eg. News
+    li:first-child {
+        padding-top: 0;
+    }
+}
+
+//-----------------------------------------------------------------
+// BLOCK GRID CONDENSED
+//-----------------------------------------------------------------
+
+[class*="block-grid-"].is-condensed {
+    margin: rem-calc(-12);
+
+    li {
+        padding: rem-calc(12);
+    }
+}
+
+[class*="block-grid-"].is-condensed-more {
+    margin: rem-calc(-5);
+
+    li {
+        padding: rem-calc(5);
+    }
+}
+
+[class*="block-grid-"].is-gapless {
+    margin: 0;
+
+    li {
+        padding: 0;
+    }
+}
+
+//-----------------------------------------------------------------
+// LIST MASONRY
+//-----------------------------------------------------------------
+
+.list-masonry {
+    column-gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(md) {
+        column-count: 2;
+    }
+
+    @include media-breakpoint-up(xl) {
+        column-count: 3;
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+
+.list-squares {
+
+    a {
+        display: flex;
+
+        &:hover h3 {
+            color: $primary !important;
+        }
+    }
+
+    h3 {
+        transition: color 200ms ease;
+    }
+
+    li a:before {
+        display: inline-block;
+        content: "";
+        position: relative;
+        top: 6px;
+        width: rem-calc(15);
+        min-width: rem-calc(15);
+        height: rem-calc(15);
+        margin-right: rem-calc(26);
+        background-color: $primary;
+    }
+}
+
+//-----------------------------------------------------------------
+// QUICK FIX - appears in blog sidebox categories
+//-----------------------------------------------------------------
+
+.list-categories {
+    .text {
+        margin-right: 3px;
+    }
+}
+
+//=========================================
+//
+//=========================================

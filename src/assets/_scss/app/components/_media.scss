@@ -1,0 +1,77 @@
+/*
+    MEDIA.CSS
+
+    - Last updated: 31.01.19
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// MEDIA BTN
+// Used for staff
+//-----------------------------------------------------------------
+
+.media-btn {
+	display: flex;
+	align-items: center;
+	position: relative;
+	// background: lighten(#e3e3e5, 8%);
+	transition: background ease 300ms;
+
+	&:hover {
+		background: #eeeff3; //lighten(#e1e2e7, 5%);
+	}
+
+	//=========================================
+	// IMAGE
+	//=========================================
+
+	.media-img {
+		// position: relative;
+		margin: 0; // reset
+		// height: 100%;
+
+		// don't target learner icon
+		img:first-of-type {
+			width: rem-calc(88);
+			height: 100%;
+
+			@include media-breakpoint-up(md) {
+			    // width: rem-calc(88);
+			}
+		}
+	}
+
+	//=========================================
+	// BODY
+	//=========================================
+
+	.media-body {
+		// max-height: 99px; // test?
+		// padding: rem-calc(15 15 0 0);
+		padding-right: rem-calc(8);
+		line-height: 1.4;
+		overflow: hidden;
+
+		.media-title {
+			// width: 100%;
+			// white-space: nowrap;
+			// overflow: hidden;
+			// text-overflow: ellipsis;
+		}
+
+		p {
+			margin: 0;
+			font-size: rem-calc(12);
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+
+//=========================================
+//
+//=========================================

@@ -1,0 +1,30 @@
+---
+layout: base
+---
+
+<!-- SECTION -->
+<section class="section">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-lg-8 col-xl-9">
+
+				{{ content }}
+
+				<!-- SPACER -->
+				<div class="spacer mb-4 mb-lg-0"></div>
+
+	        </div>
+	        <div class="col-lg-4 col-xl-3">
+
+	        	<!-- SIDEBAR -->
+				<aside class="sidebar ml-auto" style="max-width: 263px;">
+
+					{% contentblock sidebar no-convert %}
+
+				</aside>
+	        </div>
+	    </div>
+	</div>
+</section>
+
+{% contentblock content_additional no-convert %}

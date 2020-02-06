@@ -1,0 +1,315 @@
+/*
+    NAV.CSS *NEW*
+
+    - updated: 31.07.19, 03.07.19, 14.06.19, 16.04.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// NAVIGATION
+//-----------------------------------------------------------------
+
+.global-navigation {
+    position: relative; // [LOCKED]
+    // top: rem-calc(-36);
+    right: rem-calc(-20);
+}
+
+//-----------------------------------------------------------------
+// GENERAL UL
+//-----------------------------------------------------------------
+
+.lv-nav ul {
+    padding: 0; // [RESET]
+    margin: 0;  // [RESET]
+    list-style: none; // [RESET]
+}
+
+//=========================================
+// TOP PARENT UL
+//=========================================
+
+.lv-nav > ul {
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
+
+    > li {
+        position: relative; // [LOCKED]
+        margin: 0; // [RESET]
+
+        @include media-breakpoint-up(md) {
+            float: left;
+        }
+
+        @include media-breakpoint-up(lg) {
+            float: none;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// ALL ANCHORS (INCL. DROPDOWN CHILDREN)
+//-----------------------------------------------------------------
+
+.lv-nav a {
+    // display: block; // [LOCKED]
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none; // [LOCKED]
+    font-weight: 300; //$font-weight-bold; // [LOCKED]
+
+    .submenu-arrow {
+        position: relative;
+        left: 5px;
+        // display: none; ?
+        margin-left: auto;
+        font-size: rem-calc(20);
+        line-height: 0; // [LOCKED]
+    }
+}
+
+//-----------------------------------------------------------------
+// TOP PARENT ANCHORS
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li > a {
+    display: block; // [LOCKED]
+    position: relative; // for triangle - if present
+    padding: rem-calc(0 20);
+    // padding-top: rem-calc(5); // SPECIAL CASE - Josefin font is a little weird
+    font-size: rem-calc(19);
+    // text-transform: uppercase;
+    line-height: 44px; // [LOCKED]
+    color: #424242; // [THEMABLE]
+
+    // this is a preference thing. Want arrows to denote dropdowns on top nav items?
+    .submenu-arrow {
+        display: none;
+    }
+
+    // DIVIDERS
+    > .text {
+        @include media-breakpoint-up(lg) {
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: rem-calc(-20);
+                width: 1px;
+                height: 100%;
+                background: #424242;
+
+            }
+        }
+    }
+}
+
+// DIVIDERS
+.lv-nav > ul > li:nth-last-child(2) > a > .text:after {
+    display: none;
+}
+
+.lv-nav > ul > li:nth-last-child(2) > a {
+    color: $primary;
+    font-weight: 600;
+}
+
+.lv-nav > ul > li:nth-last-child(2) > a:first-letter {
+    font-weight: 400;
+}
+
+//-----------------------------------------------------------------
+// HOVER, ACTIVE
+//-----------------------------------------------------------------
+
+// ANCHOR HOVER
+.lv-nav > ul > li > a:hover {
+    // background: rgba(black, 0.05); // [THEMEABLE]
+    // color: lighten($primary, 20%);
+    color: $primary;
+}
+
+// ANCHOR ACTIVE
+.lv-nav > ul > li.active-parent > a,
+.lv-nav > ul > li.active > a  {
+    // background: rgba(black, 0.05); // [THEMEABLE]
+    color: $primary;
+
+    > .text {
+        // padding-bottom: 5px;
+        // border-bottom: 2px solid white;
+    }
+}
+
+// DEEP DROPDOWNS ALWAYS HIDDEN?
+.lv-nav .dropdown .dropdown {
+    // display: none;
+    background: #f3f3f3;
+}
+
+// DEEP DROPDOWNS ALWAYS HIDDEN
+.lv-nav .dropdown .dropdown .dropdown {
+    display: none;
+}
+
+//-----------------------------------------------------------------
+// DROPDOWN ANCHOR HOVERS
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li:hover > a {
+    // background: rgba(black, 0.05);
+
+    > .text {
+        border-color: transparent; // [LOCKED]
+    }
+}
+
+//-----------------------------------------------------------------
+
+// SHOW DROPDOWN
+// .lv-nav > ul > li.active > .dropdown {
+//     visibility: visible;
+//     transform: translateY(0);
+//     transition: none;
+//     display: flex;
+//     z-index: 1; // [LOCKED] - fixes glitch
+// }
+
+//-----------------------------------------------------------------
+// DROPDOWN ANCHOR HOVERS
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li.has-dropdown:hover > a {
+    // background: rgba(black, 0.05);
+
+    .text {
+        border-color: transparent; // [LOCKED]
+    }
+}
+
+// time hack - keep the anchor bg selected when dropdown opens
+.lv-nav ul.dropdown > li.has-dropdown:hover > a {
+    // background: rgba(black, 0.05);
+}
+
+.lv-nav .has-dropdown:hover > .dropdown {
+    @include media-breakpoint-up(lg) {
+        height: auto;
+        overflow: visible;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+//-----------------------------------------------------------------
+// DROPDOWNS
+//-----------------------------------------------------------------
+
+.lv-nav .dropdown {
+    position: absolute;
+    left: 0;
+    width: rem-calc(280);
+    height: 0; // so hit areas aren't triggered
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); // same as bootstrap dropdown in header
+    background: white;
+    overflow: hidden; // prevent hit areas triggering
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: transform 200ms ease;
+
+    // [OPT IN DESIGN / OFF CANVAS ETC]
+    &.is-excluded-from-nav,
+    &.is-excluded-from-nav .dropdown {
+        display: none; // is-excluded-from-nav
+    }
+}
+
+.lv-nav .dropdown .dropdown {
+    top: 0;
+    left: -100%;
+}
+
+//-----------------------------------------------------------------
+// DROPDOWN ALIGN
+//-----------------------------------------------------------------
+
+// Prevent far-right dropdown from exceeding page width
+.lv-nav .is-right-aligned .dropdown {
+    right: 0;
+    left: auto;
+}
+
+.lv-nav .dropdown.is-nav-included {
+    display: block;
+}
+
+//=========================================
+// DROPDOWN LIST + ANCHORS
+//=========================================
+
+.lv-nav .dropdown li {
+    position: relative;
+    border-bottom: 1px solid rgba(black, 0.1);
+
+    a {
+        padding: rem-calc(10 20);
+        font-size: rem-calc(14); // opinionated
+        font-weight: $font-weight-normal;
+        color: #444;
+        transition: none; // [LOCKED]
+
+        &:hover {
+            background: rgba(black, 0.05);
+        }
+    }
+}
+
+.lv-nav .dropdown li:last-child {
+    border-bottom: 0;
+}
+
+//-----------------------------------------------------------------
+// MEGA MENU DROPDOWNS
+//-----------------------------------------------------------------
+
+// .lv-nav .has-dropdown.is-mega > .dropdown {
+//     display: flex;
+//     flex-wrap: wrap;
+//     width: rem-calc(650);
+
+//     li {
+//         width: 33.33%;
+//     }
+// }
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.is-off-canvas-only {
+    display: none;
+}
+
+.lv-off-canvas .is-off-canvas-only {
+    display: block;
+    border: 0;
+}
+
+//=========================================
+// FOOTER
+//=========================================
+
+.global-footer .lv-nav .dropdown {
+    display: none;
+}
+
+//=========================================
+//
+//=========================================

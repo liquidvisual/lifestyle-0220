@@ -1,0 +1,76 @@
+ @charset "utf-8";
+/*
+    MAIN.CSS
+
+    - Last updated: 16.01.19
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// MIXINS
+//-----------------------------------------------------------------
+
+@import "liquidvisual/components/em-calc";
+@import "liquidvisual/components/rem-calc";
+
+//-----------------------------------------------------------------
+// BOOTSTRAP VARIABLES
+//-----------------------------------------------------------------
+
+@import "bootstrap/settings";
+
+//-----------------------------------------------------------------
+// BOOTSTRAP CORE
+//-----------------------------------------------------------------
+
+@import "bootstrap/bootstrap";
+
+//-----------------------------------------------------------------
+// APPLICATION
+//-----------------------------------------------------------------
+
+@import "app/base/variables";
+@import "app/base/global";
+
+//=========================================
+// COMPONENTS (GLOBBED)
+//=========================================
+
+@import "app/components/all";
+
+//=========================================
+// LAYOUT
+//=========================================
+
+@import "app/layout/header";
+@import "app/layout/nav";
+@import "app/layout/footer";
+
+//=========================================
+// HELPERS
+//=========================================
+
+// @import "app/helpers/fonts";
+@import "app/helpers/special";
+@import "app/helpers/text-editor";
+@import "app/helpers/themes";
+
+//-----------------------------------------------------------------
+// LOCAL DEPENDENCIES
+//-----------------------------------------------------------------
+
+@import "liquidvisual/components/alert-bar";
+@import "liquidvisual/components/block-grid";
+@import "liquidvisual/components/custom";
+@import "liquidvisual/components/toolbox";
+@import "liquidvisual/vendor/magnific-popup/main";
+// @import "liquidvisual/vendor/syntax-highlighting";
+
+//-----------------------------------------------------------------
+// NODE DEPENDENCIES
+//-----------------------------------------------------------------
+
+// $plyr-color-main: $primary;
+// @import "plyr/src/sass/plyr";
+@import "font-awesome/scss/font-awesome";
+@import "animate.css/animate";
+@import "flickity/dist/flickity";

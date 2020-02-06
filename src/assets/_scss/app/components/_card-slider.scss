@@ -1,0 +1,137 @@
+/*
+    CARD-SLIDER.CSS
+
+    - Last updated: 10.04.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// CARD SLIDER
+//-----------------------------------------------------------------
+
+.card-slider {
+    margin-left: rem-calc(-15);
+    // margin-bottom: rem-calc(-50); // [LOCKED] - looks right
+    width: calc(100% + #{rem-calc(30)});
+    // background: #eee;
+
+    //=========================================
+    // CARD
+    //=========================================
+
+    .card {
+        margin: rem-calc(10 10 30 10); // [LOCKED] - accommodate shadow
+
+        @include media-breakpoint-up(md) {
+            margin: rem-calc(16 16 25 16); // [LOCKED] - accommodate shadow
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// FLICKITY RESIZE
+// allows for 100% height after slider init and resize
+//-----------------------------------------------------------------
+
+.card-slider.flickity-resize .card-cell {
+    animation: card-cell-height-100 0.1ms ease 300ms alternate 1 forwards;
+}
+
+@keyframes card-cell-height-100 {
+    from {}
+    to {
+        height: calc(100% - #{rem-calc(40)});
+    }
+}
+
+//-----------------------------------------------------------------
+// GROUP BY [X]
+//-----------------------------------------------------------------
+
+.card-slider .group-by-two,
+.card-slider .group-by-three,
+.card-slider .group-by-four {
+    width: 90%; // [LOCKED] - slightly more card for small mobiles
+
+    @include media-breakpoint-up(sm) {
+        width: 80%;
+    }
+
+    @include media-breakpoint-up(md) {
+        width: 50%; // [LOCKED] - design decision
+    }
+}
+
+.card-slider .group-by-three {
+    @include media-breakpoint-up(xl) {
+        width: 33.33333333%;
+    }
+}
+
+.card-slider .group-by-four {
+    @include media-breakpoint-up(xl) {
+        width: 25%;
+    }
+}
+
+//-----------------------------------------------------------------
+// FLICKITY
+//-----------------------------------------------------------------
+
+.card-slider {
+
+    .flickity-prev-next-button.previous,
+    .flickity-prev-next-button.next {
+        display: none;
+        position: absolute;
+        top: rem-calc(-20);
+        left: auto;
+        right: 5px; // [LOCKED] - curated
+        width: rem-calc(40);
+        min-width: rem-calc(40);
+        padding: 0;
+        border-radius: 0 $border-radius $border-radius 0;
+        background: none;
+        text-align: center;
+        opacity: 0.7;
+        transition: opacity 150ms ease;
+
+        @include media-breakpoint-up(md) {
+            display: flex;
+        }
+
+        &[disabled] {
+            opacity: 0.1;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .flickity-button-icon {
+            display: block;
+            position: static;
+            width: 45%;
+            margin: auto;
+        }
+    }
+
+    .flickity-prev-next-button.previous {
+        right: rem-calc(40);
+        border-radius: $border-radius 0 0 $border-radius;
+        border-right: 0;
+    }
+
+    .flickity-prev-next-button.next {
+        border-left: 0;
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

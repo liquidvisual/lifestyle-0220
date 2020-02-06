@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" {{ site.environment }}>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}">
+    <title>
+        {%- if page.url == '/' -%}
+            {{- site.data.settings.title_homepage -}}
+        {%- else -%}
+            {{ page.title }} - {{ site.data.settings.title }}
+        {%- endif -%}
+    </title>
+
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,700&display=swap">
+
+    <!-- build:css({src,.tmp}) /assets/css/minified.css -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- endbuild -->
+</head>
+<body class="{{ page.theme }}">
+
+    {% include components/layout/loader.html %}
+
+    <div class="lv-page">
+
+        <!-- HEADER -->
+        <header class="global-header">
+            {% include components/layout/header.html %}
+        </header>
+
+        <!-- BODY -->
+        <div class="global-body">
+
+            {% if page.permalink == "/" %}
+                {% include components/hero/hero.html
+                    data=page.hero_slides
+                    options=page.hero_options
+                %}
+            {% else %}
+                {% include components/hero/hero_static.html
+                    bg_image=page.hero_image
+                    options=page.hero_options
+                %}
+            {% endif %}
+
+            {{ content }}
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="global-footer">
+            {% include components/layout/footer.html %}
+        </footer>
+
+    </div> <!-- /.lv-page -->
+
+    <!-- OFF-CANVAS MENU -->
+    <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
+        {% include components/navigation/nav.html data=site.data.sitemap %}
+    </nav>
+
+    <!--[if lte IE 9]>
+    <div class="lv-alert-bar">
+        <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
+        <span class="lv-alert-bar-close-btn">&times;</span>
+    </div>
+    <![endif]-->
+
+    <!-- **** JAVASCRIPT **** -->
+
+    <!-- build:js({src,.}) /assets/scripts/minified.js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/node_modules/bootstrap-validator/dist/validator.js"></script>
+    <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
+    <script src="/node_modules/headroom.js/dist/headroom.js"></script>
+    <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="/assets/scripts/liquidvisual/equal-height.js"></script>
+    <script src="/assets/scripts/liquidvisual/headroom.js"></script>
+    <script src="/assets/scripts/liquidvisual/hero-slider.js"></script>
+    <script src="/assets/scripts/slider.js"></script>
+    <script src="/assets/scripts/liquidvisual/off-canvas.js"></script>
+    <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
+    <script src="/assets/scripts/main.js"></script>
+    <!-- endbuild -->
+
+    {% comment %}
+        <script src="/node_modules/scrollax/scrollax.js"></script>
+        <script src="/assets/scripts/liquidvisual/gallery.js"></script>
+        <script src="/assets/scripts/slider.js"></script>
+        <script src="/assets/scripts/vue-staff-app.js"></script>
+    {% endcomment %}
+
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
+        <div class="lv-alert-bar">
+            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+        </div>
+    </noscript>
+
+</body>
+</html>

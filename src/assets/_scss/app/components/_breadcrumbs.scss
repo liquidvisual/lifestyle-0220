@@ -1,0 +1,78 @@
+/*
+    BREADCRUMBS.CSS
+
+    - Last updated: 03.07.19
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// BREADCRUMBS
+//-----------------------------------------------------------------
+
+.lv-breadcrumb-wrapper {
+    position: relative;
+    top: -16px;
+
+    > .container {
+        padding: 0; // [LOCKED]
+    }
+
+    .breadcrumb {
+        padding: 0;
+        // padding: rem-calc(10 0); // PSD
+    }
+
+    .breadcrumb-item {
+        display: inline-flex;
+        align-items: center;
+        text-transform: uppercase;
+    	font-size: rem-calc(15);
+        font-weight: $font-weight-bold;
+    	color: rgba(white, 0.67);
+
+        // ARROW
+        .fa {
+            position: relative; // Josefin is off
+            top: -3px; // Josefin is off
+        }
+
+    	&:hover {
+    		opacity: 0.8;
+    	}
+    }
+}
+
+// Eg. BACK button on small
+.is-short.is-minimal .lv-breadcrumb-wrapper .breadcrumb-item {
+    @include media-breakpoint-down(sm) {
+        font-size: $display2-size !important;
+        font-weight: $font-weight-normal;
+    }
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.lv-hero-item.is-minimal .lv-breadcrumb-wrapper {
+    top: rem-calc(8); // hardcoded
+
+    .breadcrumb-item {
+        font-size: rem-calc(20); // hardcoded
+        color: white;
+
+        @include media-breakpoint-up(md) {
+            font-size: rem-calc(30); // hardcoded
+        }
+    }
+}
+
+//=========================================
+//
+//=========================================
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------

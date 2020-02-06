@@ -1,0 +1,32 @@
+{% comment %}
+<!--
+    BREADCRUMBS
+
+    updated: 16.06.19, 22.01.19
+    liquidvisual.com
+-->
+{% endcomment %}
+
+{% assign crumbs = page.url | split: '/' %}
+
+<!-- BREADCRUMBS -->
+<section class="lv-breadcrumb-wrapper {{ include.theme }}">
+    <div class="container">
+        <nav class="breadcrumb">
+            {% for crumb in crumbs offset: 1 %}
+                {% assign previous_path = forloop.length | minus: 1 %}
+                {% if forloop.index == previous_path %}
+                    <a class="breadcrumb-item"
+                        href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">
+                        <i class="fa fa-angle-left"></i>&nbsp;
+                        {% if page.breadcrumbs_text %}
+                            {{ page.breadcrumbs_text }}
+                        {% else %}
+                            {{ crumb | capitalize | replace: '-', ' ' }}
+                        {% endif %}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+    </div>
+</section>

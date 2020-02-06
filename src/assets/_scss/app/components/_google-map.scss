@@ -1,0 +1,68 @@
+/*
+    GOOGLE-MAP.CSS
+
+    - Last updated: 14.07.19
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// GOOGLE MAP DEFAULTS
+//-----------------------------------------------------------------
+
+.lv-google-map {
+    display: flex; // fixed bottom margin error
+    position: relative;
+    overflow: hidden;
+    background-color: #f0eeee;
+
+    iframe {
+        position: relative;
+        z-index: 1; // [LOCKED]
+    }
+
+    .fa-circle-o-notch {
+        position: absolute;
+        top: calc(50% - #{rem-calc(40)}/2);
+        left: calc(50% - #{rem-calc(50)}/2);
+        font-size: rem-calc(34);
+        color: $primary;
+    }
+}
+
+//-----------------------------------------------------------------
+// ADDITIONS - FULL SCREEN ADDITION
+//-----------------------------------------------------------------
+
+// .lv-google-map {
+//     position: relative;
+//     left: -20px;
+//     width: 100vw;
+//     height: 350px;
+
+//     @include media-breakpoint-up(md) {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 130%;
+//         height: 75%;
+//         z-index: -1;
+//     }
+
+//     @include media-breakpoint-up(lg) {
+//         width: 100%;
+//         height: 100%;
+//     }
+
+//     @include media-breakpoint-up(xl) {
+//         height: 110%;
+//     }
+
+//     iframe {
+//         height: 100%;
+//     }
+// }
+
+//=========================================
+//
+//=========================================

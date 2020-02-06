@@ -1,0 +1,31 @@
+<!-- PAGE LOADER -->
+<div id="lv-page-loader" class="lv-page-loader">
+    <div class="lv-page-loader-spinner">
+        <div class="loader-spinner">
+            <div class="loader-component">
+                <div class="half-circle"></div>
+            </div>
+            <div class="loader-component">
+                <div class="half-circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
+<script>
+    (function loader(){
+        var loader = document.getElementById('lv-page-loader');
+        loader.style.display = 'flex';
+
+        // add class when window has fully loaded
+        window.addEventListener('load', function() {
+            document.documentElement.classList.add('has-loaded');
+        });
+
+        // Prevent loader from getting stuck if body takes too long
+        setTimeout(function(){
+            loader.classList.add('force-finish');
+        }, 1500); // max of 1.5 secs
+    })();
+</script>

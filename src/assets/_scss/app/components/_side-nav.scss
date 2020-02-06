@@ -1,0 +1,235 @@
+/*
+    SIDE-NAV.CSS
+
+    - Last updated: 12.07.19, 13.06.19, 25.03.19, 18.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SIDE NAV
+//-----------------------------------------------------------------
+
+.side-nav {
+
+    //-----------------------------------------------------------------
+    // ALL ULS
+    //-----------------------------------------------------------------
+
+    ul {
+        list-style: none;
+        padding: 0; // [RESET]
+    }
+
+    //-----------------------------------------------------------------
+    // TOP PARENT URL
+    //-----------------------------------------------------------------
+
+    > ul {
+        position: relative;
+        // padding: rem-calc(10 0);
+        font-family: $font-family-sans-serif;
+        // background: $primary;
+
+        // TOP & BOTTOM BORDER LINES
+        // &:before,
+        // &:after {
+        //     content: "";
+        //     position: absolute;
+        //     top: rem-calc(10);
+        //     width: 100%;
+        //     height: 1px;
+        //     background: rgba(white, 0.1);
+        //     z-index: 1;
+        // }
+
+        // &:after {
+        //     top: auto;
+        //     bottom: rem-calc(10);
+        // }
+    }
+
+    // nested ULs
+    ul ul {
+        display: none;
+    }
+
+    &.is-small ul ul {
+        display: block;
+    }
+
+    // active ULs
+    // li.active-parent > ul {
+        // display: block;
+    // }
+
+    //-----------------------------------------------------------------
+    // LI + ARROW
+    //-----------------------------------------------------------------
+
+    li {
+        padding: 0; // [RESET]
+        border-top: 1px solid #d1d1d1;
+    }
+
+    // > ul > li:not(.active-parent) {
+    //     // border-bottom: 1px solid rgba(white, 0.4);
+    //     border-bottom: 1px solid #d1d1d1;
+    // }
+
+    > ul > li > ul > li {
+        // border-top: 1px solid #2e2b2c;
+        // border-top: 1px solid #d1d1d1;
+    }
+
+    > ul {
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    > ul > li > a {
+        // display: none; // remove all top levels
+    }
+
+    .has-dropdown.active-parent {
+        // margin-top: -1px;
+    }
+
+    //-----------------------------------------------------------------
+    // ANCHORS
+    //-----------------------------------------------------------------
+
+    li > a {
+        padding: rem-calc(18 45 10 20); // magic (josefin)
+
+        @include media-breakpoint-down(sm) {
+            padding-left: 0 !important;
+        }
+    }
+
+    // ul ul > li > a {
+    //     content: "-";
+    //     padding: rem-calc(15 34); // indent?
+    //     background: #484445;
+
+    //     &:before {
+    //         content: "-";
+    //         font-weight: $font-weight-normal;
+    //     }
+    // }
+
+    //-----------------------------------------------------------------
+    // IS SMALL (second level)
+    //-----------------------------------------------------------------
+
+    // hide all not apart of direct subchildren
+    // &.is-small > ul > li:not(.active-parent) {
+        // display: none;
+    // }
+
+    // hide the 'double' top border
+    &.is-small > ul > li.active-parent {
+        border-top: 0;
+    }
+
+    // hide the very top active parent, just list subchildren
+    // &.is-small > ul > li.active-parent > a {
+        // display: none;
+    // }
+
+    &.is-small li > a {
+        padding: rem-calc(16 50 12 14); // magic (josefin)
+    }
+
+    &.is-small a {
+        font-size: rem-calc(21);
+    }
+
+    &.is-small a:after {
+        top: rem-calc(9);
+        right: rem-calc(14);
+    }
+
+    //-----------------------------------------------------------------
+    // GENERAL ACTIVE ANCHORS
+    //-----------------------------------------------------------------
+
+    a {
+        position: relative; // for arrows
+        display: block;
+        align-items: center;
+        font-size: rem-calc(26);
+        font-weight: $font-weight-bold;
+        color: $body-color;
+        text-transform: uppercase;
+
+        @include media-breakpoint-down(sm) {
+            font-size: rem-calc(21);
+        }
+
+        &:hover {
+            // color: rgba(white, 0.8);
+            // color: lighten($body-color, 30%);
+            opacity: 0.8;
+        }
+    }
+
+    // arrows added to all
+    a:after {
+        position: absolute;
+        top: rem-calc(12);
+        right: rem-calc(20);
+        content: "\f105";
+        font-family: "FontAwesome";
+        font-size: rem-calc(40);
+        font-weight: normal;
+        line-height: 1;
+        opacity: 0.8;
+
+        @include media-breakpoint-down(sm) {
+            right: 0 !important;
+        }
+    }
+
+    //-----------------------------------------------------------------
+    // ACTIVE
+    //-----------------------------------------------------------------
+
+    .active-parent > a {
+        // background-color: #484445;
+    }
+
+    .active > a,
+    .has-dropdown.active > a {
+        background-color: #f7f7f7; //#2e2b2c;
+    }
+
+    li.active {
+        position: relative;
+        // background: #024f83;
+
+        // &:after {
+        //     content: "\f105";
+        //     position: absolute;
+        //     top: rem-calc(8);
+        //     right: rem-calc(15);
+        //     font-family: "FontAwesome";
+        //     font-size: rem-calc(24);
+        //     font-weight: $font-weight-bold;
+        //     color: white;
+        // }
+    }
+
+    //-----------------------------------------------------------------
+    // HIDE ALL SUBMENU ARROWS
+    //-----------------------------------------------------------------
+
+    // hide all arrows from markup
+    a > .submenu-arrow {
+        display: none; // [LOCK]
+    }
+}
+
+//=========================================
+//
+//=========================================

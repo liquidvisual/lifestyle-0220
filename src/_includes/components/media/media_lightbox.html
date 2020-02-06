@@ -1,0 +1,20 @@
+{% assign data = include.data | default: site.data.gallery_single %}
+
+<!-- MEDIA LIGHTBOX -->
+<div class="gallery mb-4" data-lightbox-group="Group Name Optional">
+	{% for item in data %}
+		<a class="btn-tile" href="{{ item.url }}" title="{{ item.title }}">
+			<img width="100%" src="{{ item.image }}" alt="{{ item.title }}">
+			<span class="btn-tile-bg" style="background-image: url({{ item.image }})"></span>
+
+			<!-- OVERLAY TEXT (OPTIONAL) -->
+			{% if item.caption %}
+				<div class="btn-tile-overlay">
+					<h4 class="btn-tile-header">{{ item.caption.title }}</h4>
+					<p class="mb-0">{{ item.caption.body }}</p>
+				</div>
+			{% endif %}
+
+		</a>
+	{% endfor %}
+</div>

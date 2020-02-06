@@ -1,0 +1,57 @@
+{
+    "Home": {
+        "url": "/",
+    },
+    "Coffins": {
+        "url": "/coffins/",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Floral": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Places": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Sport": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Nature": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Flags": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Hobbies": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Animals": {
+                "url": "/coffins/coffins-categories/",
+            },
+            "Custom": {
+                "url": "/coffins/coffins-categories/",
+            }
+        }
+    },
+    "Ash Boxes": {
+        "url": "/ash-boxes/",
+    },
+    "FAQ": {
+        "url": "/faq/",
+    },
+    "The Latest": {
+        "url": "/blog/",
+    },
+    "Stockists": {
+        "url": "/stockists/",
+        "classes": "is-right-aligned",
+    },
+    "Contact Us": {
+        "url": "/contact-us/",
+    },
+    "P: 1800 095 829": {
+        "url": "#tel:1800095829",
+    },
+    #"Search": {
+    #    "url": "#/search/"
+    #}
+}

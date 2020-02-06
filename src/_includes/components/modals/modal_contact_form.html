@@ -1,0 +1,30 @@
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <!-- CLOSE -->
+            <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+            <!-- MODAL BODY -->
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-10">
+                        <section class="section py-5">
+
+                            <!-- PLEASE SELECT YOUR STATE -->
+                            <h2 class="text-center mb-4 pb-2 mx-auto" style="max-width: 586px">
+                                <i class="fa fa-envelope mr-1"></i> Email <span class="font-weight-normal">Sarah</span>
+                            </h2>
+
+                            {% include components/forms/form_contact_person.html %}
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

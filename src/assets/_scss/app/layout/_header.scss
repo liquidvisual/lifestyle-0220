@@ -1,0 +1,275 @@
+/*
+    HEADER.CSS
+
+    - Last updated: 17.09.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$header-top-sm-height: 50px !default;
+$header-top-md-height: 50px !default;
+$header-top-lg-height: 50px !default;
+
+$header-body-sm-height: 60px !default;
+$header-body-md-height: 180px !default; //230px !default;
+$header-body-lg-height: 180px !default; //230px !default;
+$header-body-xl-height: 214px !default; //324px !default;
+$header-body-xxl-height: 304px !default; //324px !default;
+
+// $header-bottom-sm-height: 50px !default;
+// $header-bottom-md-height: 50px !default;
+// $header-bottom-lg-height: 50px !default;
+
+//-----------------------------------------------------------------
+// HEADROOM
+//-----------------------------------------------------------------
+//****************************************************
+// PINNED - SCROLLING DOWN
+//****************************************************
+
+.headroom--pinned .global-header {
+    @include media-breakpoint-down(lg) {
+        transform: translateY(0%); // SHOW MENU BAR
+        transition: transform 200ms ease;
+    }
+}
+
+//****************************************************
+// UNPINNED - SCROLLING UP
+//****************************************************
+
+.headroom--unpinned .global-header {
+	@include media-breakpoint-down(lg) {
+    	transform: translateY(-106%); // HIDE MENU BAR
+	}
+}
+
+//****************************************************
+// HEADROOM NOT TOP
+//****************************************************
+
+.headroom--not-top .global-header {
+	position: fixed;
+	box-shadow: 0 0 3px 1px rgba(black, 0.2);
+
+	@include media-breakpoint-up(xl) {
+	    animation: subtle-entrance 150ms ease 0s alternate 1 forwards;
+
+	    @keyframes subtle-entrance {
+	    	from { transform: translateY(-50px); }
+	    	to   { transform: translateY(0); }
+	    }
+	}
+
+	.global-navigation {
+		top: 0;
+	}
+
+	.global-header-top {
+		height: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.global-header-body {
+		// background: $secondary;
+		// transition: all 200ms ease;
+
+		@include media-breakpoint-down(lg) {
+		    // background: $primary;
+		}
+
+		@include media-breakpoint-up(md) {
+		    height: rem-calc(90);
+		}
+
+		.logo img {
+			@include media-breakpoint-up(md) {
+				width: auto;
+			    max-height: rem-calc(46); // 60
+			}
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER GENERAL
+//-----------------------------------------------------------------
+
+.global-header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $tertiary;
+	// opacity: 0.2;
+	will-change: transform;
+	// z-index: 9999;
+	z-index: 200;
+
+	@include media-breakpoint-up(md) {
+		// position: absolute;
+	    // background: white;
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER TOP
+//-----------------------------------------------------------------
+
+.global-header-top {
+	display: flex;
+	align-items: center;
+	position: relative; // [LOCKED]
+	height: $header-top-lg-height;
+	background: rgba(#151515, 0.14); // body bg variable?
+	font-size: rem-calc(16);
+	color: white; // [LOCKED] - for dropdown override
+	// transition: all ease 150ms;
+	// z-index: 2; // [LOCKED] - dropdown needs to move over top of nav
+
+	a {
+		margin-right: rem-calc(25);
+		color: white; // [THEMEABLE]
+		transition: opacity 200ms ease;
+
+		i {
+			position: relative;
+			top: 1px;
+			font-size: rem-calc(19);
+		}
+	}
+
+	a:last-of-type {
+		margin-right: 0;
+	}
+}
+
+//=========================================
+// HOVERS
+//=========================================
+
+.global-header-top a:not(.dropdown-item):hover {
+	opacity: 0.8;
+}
+
+//=========================================
+// DROPDOWN
+// a little brittle - copies styles from topbar
+//=========================================
+
+// .global-header-top .dropdown .dropdown-menu {
+// 	padding: 0; // [RESET]
+// 	border: 0;
+// 	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+// 	.dropdown-item {
+// 		padding: rem-calc(15 20);
+// 		font-size: rem-calc(14); // opinionated
+// 		font-weight: 500;
+// 		color: #444;
+
+// 		&:hover {
+// 			background: rgba(black, 0.1);
+// 			color: #444 !important;
+// 		}
+// 	}
+// }
+
+//-----------------------------------------------------------------
+// HEADER BODY
+//-----------------------------------------------------------------
+
+.global-header-body {
+	position: relative; // safe? - added for dropdown
+	display: flex;
+	align-items: center;
+	height: $header-body-sm-height;
+	// transition: height 100ms ease;
+	z-index: 1; // safe? - added for dropdown
+
+	@include media-breakpoint-up(md) {
+	    height: $header-body-md-height;
+	    // height: auto;
+	    padding: rem-calc(20 0);
+	}
+
+	@include media-breakpoint-up(lg) {
+		height: $header-body-lg-height;
+	}
+
+	@include media-breakpoint-up(xl) {
+		height: $header-body-xl-height;
+	}
+
+	@include media-breakpoint-up(xxl) {
+	    height: $header-body-xxl-height;
+	}
+
+	//=========================================
+	// HEADER HEIGHT [LOCKED]
+	//=========================================
+
+	> .container {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		@include media-breakpoint-down(xs) {
+		    width: 100%; // fixes mobile glitch?
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// LOGO
+//-----------------------------------------------------------------
+
+.global-header .logo {
+	position: relative;
+	margin-right: auto;
+	// border: 1px solid red;
+
+	@include media-breakpoint-up(md) {
+	    top: rem-calc(-10);
+	}
+
+	img {
+	    max-height: rem-calc(40);
+
+		@include media-breakpoint-up(md) {
+		    // max-height: rem-calc(100); // [LOCKED] - default size
+		    width: rem-calc(331);
+		    max-height: none;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// MOBILE ICONS
+//-----------------------------------------------------------------
+
+.mobile-icon {
+	display: flex;
+	align-items: center;
+	margin-left: rem-calc(20);
+	cursor: pointer;
+	color: white;
+
+	.text {
+		margin: rem-calc(0 8);
+	}
+
+	i {
+		font-size: rem-calc(26);
+	}
+
+	&:hover {
+		color: white;
+	}
+}
+
+//=========================================
+//
+//=========================================

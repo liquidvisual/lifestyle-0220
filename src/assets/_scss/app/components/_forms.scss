@@ -1,0 +1,182 @@
+/*
+    FORMS.CSS
+
+    - updated: 04.04.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// BOOTSTRAP VALIDATION
+// http://1000hz.github.io/bootstrap-validator/#validator-events
+//-----------------------------------------------------------------
+
+form,
+form[data-toggle="validator"] {
+	.error {
+		display: none;
+		// padding: rem-calc(5 10 4 10);
+		padding: rem-calc(10 10 10 0);
+		// background: $red;
+		font-weight: $font-weight-normal;
+		color: lighten($red, 20%);
+	}
+
+	.has-error > .error {
+		display: block;
+		margin-bottom: $form-group-margin-bottom;
+	}
+
+	.has-error > .form-control {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+// form:not(.global-search-form) .btn {
+// 	min-width: rem-calc(250);
+// 	font-size: rem-calc(17) !important;
+// 	color: white !important;
+// 	justify-content: center;
+
+// 	&.disabled {
+// 		cursor: not-allowed;
+// 	}
+// }
+
+//-----------------------------------------------------------------
+// CAPTCHA BADGE
+//-----------------------------------------------------------------
+
+.grecaptcha-badge {
+	transform: scale(0.9);
+	bottom: rem-calc(70) !important;
+}
+
+//-----------------------------------------------------------------
+// ASTERISK
+//-----------------------------------------------------------------
+
+.asterisk {
+	font-size: rem-calc(20);
+	line-height: 0;
+	color: $blue;
+}
+
+//-----------------------------------------------------------------
+// FORM GROUPS WITH ICONS
+//-----------------------------------------------------------------
+
+.form-group.has-icon {
+	position: relative;
+
+	> i {
+		position: absolute;
+		top: rem-calc(18);
+		left: -10px;
+		left: rem-calc(15);
+		line-height: 0;
+		color: rgba(black, 0.4);
+		z-index: 2;
+
+		+ .input-group input,
+		+ input {
+			position: relative;
+			padding-left: rem-calc(40);
+			z-index: 1;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// DEFAULTS
+//-----------------------------------------------------------------
+
+fieldset {
+	margin-bottom: $spacer;
+}
+
+.custom-control {
+	margin-bottom: rem-calc(15);
+}
+
+// form label em,
+// form label i {
+// 	// color: rgba(white, 0.5);
+// }
+
+.global-footer input,
+.global-footer button {
+	// border: 0;
+}
+
+//-----------------------------------------------------------------
+// FORM SELECT BOX (used in /people/)
+//-----------------------------------------------------------------
+
+.form-sort-select {
+	padding: rem-calc(20);
+	background: $tertiary;
+	// color: white;
+
+	.text {
+		min-width: rem-calc(80);
+	}
+
+	select {
+		padding: rem-calc(5 15);
+		background-position: right 15px center;
+	}
+}
+
+//-----------------------------------------------------------------
+// FORM GROUP
+//-----------------------------------------------------------------
+
+.input-group input {
+	padding-right: rem-calc(164);
+}
+
+.input-group-append {
+
+	.btn {
+		display: block;
+		position: absolute;
+		top: 6px;
+		right: 6px;
+		height: calc(100% - 12px);
+		padding: rem-calc(0 50 0 15);
+		background-color: #212529;
+		border: 0;
+		min-width: rem-calc(154);
+		font-size: rem-calc(14);
+		z-index: 10;
+
+		&:after {
+			content: "→";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: rem-calc(40);
+			height: 100%;
+			line-height: rem-calc(40);
+			background-color: #3a3a3a;
+			transition: 200ms ease background;
+		}
+
+		&:hover {
+			background-color: darken(#212529, 5%);
+		}
+
+		&:active:after {
+			background-color: $primary;
+		}
+	}
+}
+
+//=========================================
+//
+//=========================================

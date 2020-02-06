@@ -1,0 +1,521 @@
+/*
+    HERO.CSS
+
+    - updated: 11.06.19, 22.10.19
+    - notes:
+        * liquidvisual uses flickity for all sliders
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$hero-height-presets: (
+    is-auto: (
+        xs: auto,
+        md: auto,
+        lg: auto // rem-calc(846), // [LOCKED] - 576 maintain aspect ratio?
+    ),
+    is-home: (
+        xs: auto,
+        md: auto,
+        lg: auto
+    ),
+    is-short: (
+        xs: auto,
+        md: rem-calc(470),
+        lg: rem-calc(600),
+        xl: rem-calc(600)
+    ),
+    is-minimal: (
+        xs: auto,
+        md: rem-calc(470),
+        lg: rem-calc(470),
+        xl: rem-calc(470)
+    ),
+    is-full: (
+        xs: auto,
+        md: 100vh,
+        lg: 100vh
+    )
+);
+
+//-----------------------------------------------------------------
+// HEIGHT PRESETS
+//-----------------------------------------------------------------
+
+@each $preset, $bps in $hero-height-presets {
+    .lv-hero.#{$preset} { // Output a preset selector
+        @each $item in $bps {
+            $bp: nth($item, 1);
+            $val: nth($item, 2);
+
+            @include media-breakpoint-up($bp) {
+                height: $val;
+            }
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// HERO WRAPPER + HERO
+//-----------------------------------------------------------------
+
+.lv-hero-wrapper {
+    position: relative; // [LOCKED]
+
+    .lv-hero {
+        // overflow: hidden; // [LOCKED] - hides slides when no JS
+    }
+}
+
+//-----------------------------------------------------------------
+// HERO ITEM (SLIDES)
+//-----------------------------------------------------------------
+
+.lv-hero-item {
+    display: flex !important; // [LOCKED] - bx or carousel override
+    align-items: center;
+    position: relative; // [LOCKED] - for non-js (?)
+    width: 100%; // [LOCKED]
+    // height: 100%;
+    // min-height: rem-calc(540); // curated
+// padding: rem-calc(45 0); //rem-calc(100 0);
+    // background-color: #e1e1e1; //$primary;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    // overflow: hidden; // [LOCKED] - stop video spilling out
+    z-index: 1; // [LOCKED] - video will be -1
+
+    @include media-breakpoint-up(md) {
+        height: 100%;
+        // padding: 0;
+    // padding: 8.7% 0; //rem-calc(110 0);
+    }
+
+    @include media-breakpoint-up(xl) {
+    // padding: rem-calc(163 0);
+    }
+
+    //=========================================
+    // TINT OVERLAY
+    //=========================================
+
+    &.is-tinted:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background: rgba(black, 0.26);
+        background: linear-gradient(to bottom, rgba(black, 1) 18%, rgba(black, 0) 80%); // PSD
+        opacity: 0.42; // PSD
+        z-index: 1;
+    }
+}
+
+//-----------------------------------------------------------------
+// IS-SHORT >> HERO-ITEM (INNER PAGES)
+//-----------------------------------------------------------------
+
+.is-short .lv-hero-item {
+    // height: 100%; // undo options placed on auto-height - this is slim banner
+    // min-height: 0;
+    // padding: rem-calc(0 0 45 0);
+    padding: rem-calc(230 0 0 0);
+}
+
+//----------------------------------------------------------------- *****
+// HERO CAPTION
+//----------------------------------------------------------------- *****
+
+.lv-hero-item-caption {
+    position: relative; // [LOCKED] - z-index
+    width: 100%; // fill outer flex
+    // font-size: rem-calc(17);
+    color: white;
+    z-index: 1; // [LOCKED] - above tint
+    // overflow-wrap: break-word;
+    // word-wrap: break-word;
+    // word-break: break-word;
+    // hyphens: auto;
+    // -webkit-hyphens: auto;
+
+
+
+    .lv-hero-item-caption-bottom {
+        background: rgba(white, 0.64);
+
+        .wysiwyg,
+        .wysiwyg p {
+            font-size: rem-calc(20);
+        }
+    }
+}
+
+//----------------------------------------------------------------- *****
+// HERO CAPTION - DEFAULT (CAROUSEL)
+//----------------------------------------------------------------- *****
+
+.is-short .lv-hero-item-caption {
+    background: rgba(#232c2e, 0.64);
+    width: 100%;
+    padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
+    // padding-top: 30%;
+
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
+    }
+}
+
+.is-minimal .lv-hero-item-caption {
+    padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
+
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(16 0 25 0); // PSD - magic numbers - accomodate Josefin
+    }
+}
+
+.is-home .lv-hero-item-caption {
+    // padding-top: 40%;
+
+    @include media-breakpoint-up(lg) {
+        // padding: rem-calc(600 0 0 0);
+    }
+
+    // padding: rem-calc(20);
+    // background: rgba($primary, 0.82);
+
+    // @include media-breakpoint-down(sm) {
+    //     left: -20px;
+    //     width: calc(100% + 40px);
+    //     padding: rem-calc(20 15);
+    //     margin-top: 100px;
+    //     margin-bottom: rem-calc(-50);
+    // }
+
+    // @include media-breakpoint-up(md) {
+    //     // padding: rem-calc(35 130 35 56);
+    // }
+
+    // @include media-breakpoint-up(xl) {
+    //     max-width: rem-calc(680); // [LOCKED] - psd
+    // }
+}
+
+.is-home .lv-hero-item-caption-bottom {
+    padding: rem-calc(85 0 26 0);
+}
+
+//-----------------------------------------------------------------
+// SLIDER WRAPPER
+//-----------------------------------------------------------------
+
+.lv-hero-item-slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    .lv-hero-item-slider {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .lv-hero-item-slide {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SLIDER CONTROLS
+//-----------------------------------------------------------------
+
+.lv-hero-slider-controls {
+    position: absolute;
+    top: 44%;
+    width: 100%;
+    height: 0;
+    z-index: 100;
+
+    > .container {
+        position: relative;
+    }
+
+    //=========================================
+    // NEXT / PREV BUTTONS
+    //=========================================
+
+    .lv-hero-slider-prev-btn,
+    .lv-hero-slider-next-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: rem-calc(50);
+        height: rem-calc(80);
+        line-height: 0;
+        cursor: pointer;
+        font-family: "FontAwesome";
+        font-size: rem-calc(50);
+        // background: rgba(black, 0.2);
+        color: rgba(white, 0.8);
+        // text-shadow: 0 1px 4px rgba(black, 0.1);
+        transition: background 300ms ease, color 300ms ease;
+
+        &:hover {
+            background: rgba(black, 0.2);
+            color: rgba(white, 0.9);
+
+            i {
+                transform: translateX(-3px);
+            }
+        }
+
+        &:active {
+            color: rgba(white, 0.5);
+        }
+
+        i {
+            padding-bottom: rem-calc(4);
+            transition: transform 400ms ease;
+            transform: translateX(0);
+        }
+    }
+
+    .lv-hero-slider-prev-btn {
+        left: 0; // $container-gutter/2;
+        border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    .lv-hero-slider-next-btn {
+        right: 0; //$container-gutter/2;
+        border-radius: $border-radius 0 0 $border-radius;
+
+        &:hover {
+            i {
+                transform: translateX(3px);
+            }
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// FLICKITY CUSTOM
+//-----------------------------------------------------------------
+
+.lv-page .lv-hero .flickity-page-dots {
+    text-align: right;
+    padding-right: rem-calc(20);
+    bottom: rem-calc(15);
+    z-index: 999;
+
+    // curated
+    .dot {
+        width: rem-calc(13);
+        height: rem-calc(13);
+        margin: rem-calc(0 5);
+        // border: 1px solid rgba(white, 0.3);
+        background: rgba(white, 0.3);
+
+        &.is-selected {
+            background: rgba(white, 0.6);
+        }
+    }
+}
+
+.lv-hero .flickity-viewport {
+    // @include media-breakpoint-up(md) {
+        height: 100% !important; // fixes responsive issue
+    // }
+}
+
+// for auto height animation
+.flickity-viewport {
+    will-change: auto;
+    transition: height 300ms ease;
+}
+
+//=========================================
+// FADE INSTEAD OF SLIDE
+// https://github.com/metafizzy/flickity/issues/26
+// https://codepen.io/dallanlee/pen/GEjWpo
+//=========================================
+
+// .has-fade-transition {
+//     .lv-hero-item-slider .flickity-slider {
+//         transform: none !important;
+//     }
+
+//     .lv-hero-item-slide {
+//         left: 0 !important;
+//         opacity: 0;
+//         transition: opacity 0.9s ease-in-out 0.3s;
+//         z-index: 1;
+//     }
+
+//     .lv-hero-item-slide.is-selected {
+//         opacity: 1;
+//         transition: opacity 0.9s ease-in-out;
+//         z-index: 2;
+//     }
+// }
+
+//-----------------------------------------------------------------
+// HERO - SCROLL PROMPT
+//-----------------------------------------------------------------
+
+.lv-hero-scroll-prompt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: calc(50% - 20px);
+    bottom: rem-calc(100);
+    width: rem-calc(40);
+    height: rem-calc(40);
+    border-radius: 100%;
+    background: rgba(white, 0.3);
+    font-size: rem-calc(30);
+    text-align: center;
+    color: black;
+    transition: background-color ease 300ms;
+    animation: pulsate 0.8s ease-out 0.3s alternate infinite;
+    z-index: 1;
+
+    &:hover {
+        color: black;
+        background: rgba(white, 0.25);
+    }
+
+    @keyframes pulsate {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(10px);}
+    }
+}
+
+//-----------------------------------------------------------------
+// HERO - YOUTUBE VIDEO
+// https://stackoverflow.com/questions/24579785/force-iframe-youtube-video-to-center-fit-and-full-cover-the-screen-in-the-backgr?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+//-----------------------------------------------------------------
+
+.lv-hero .video-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background-color: #17111c;
+    // z-index: -99;
+}
+
+.lv-hero .video-fg,
+.lv-hero .video-bg iframe,
+.lv-hero .video-bg video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+// HTML5 VIDEO
+.lv-hero .video-bg video {
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-44%);
+
+    @include media-breakpoint-up(sm) {
+        transform: translateX(-50%) translateY(-40%);
+    }
+
+    @include media-breakpoint-up(md) {
+        transform: translateX(-50%) translateY(-36%);
+    }
+
+    @include media-breakpoint-up(xl) {
+        left: calc(50vw - 1920px/2);
+        min-width: 1920px;
+        min-height: 1080px;
+        transform: translateX(0) translateY(-48%);
+    }
+
+    @media (min-width: 1921px) {
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-38%);
+    }
+}
+
+.lv-hero .video-bg iframe,
+.lv-hero .video-bg video {
+    opacity: 0;
+    animation: delayShow 2s ease 300ms alternate 1 forwards;
+
+    @keyframes delayShow {
+        0%   { opacity: 0;  }
+        100% { opacity: 1;  }
+    }
+}
+
+// DEFAULT HERO
+.lv-hero:not(.is-full) .video-fg {
+    @include media-breakpoint-up(md) {
+        display: block;
+        left: -100%;
+        width: 300%;
+    }
+    @include media-breakpoint-up(lg) {
+        top: -103%;
+        left: 0;
+        width: 106%;
+        height: 306%;
+    }
+}
+
+// FULSCREEN PRESET
+.lv-hero.is-full .video-fg {
+    @media (min-aspect-ratio: 16/9) {
+        height: 300%;
+        top: -100%;
+    }
+    @media (max-aspect-ratio: 16/9) {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+// MEDIUM PRESET - kind of a hassle
+.lv-hero.is-medium .video-fg {
+    @include media-breakpoint-down(md) {
+        top: -106%;
+        left: 0;
+        width: 103%;
+        height: 303%;
+    }
+}
+
+// Notes: 16:9 is 1024x576, 720p is 1280x720, HD is 1920x1080
+
+// video::-webkit-media-controls {
+//     display: none !important; // for video element
+// }
+
+//=============================================
+//
+//=============================================

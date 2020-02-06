@@ -1,0 +1,14 @@
+{% assign settings = site.data.settings %}
+
+{% unless site.environment == 'development' %}
+	{% if settings.google_analytics %}
+		<!-- GLOBAL SITE TAG (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_analytics }}"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', '{{ settings.google_analytics }}');
+		</script>
+	{% endif %}
+{% endunless %}

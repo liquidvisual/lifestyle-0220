@@ -1,0 +1,108 @@
+/*
+    SPINNERS.CSS
+
+    - Last updated: 17.05.18
+    - https://codepen.io/gijsbotje/pen/mprEoX
+
+    <div class="d-flex justify-content-around align-items-center py-5">
+        <div class="spinner-border text-primary">Loading...</div>
+        <div class="spinner-border spinner-border-reverse text-success">Loading...</div>
+        <div class="spinner-border spinner-border-reverse text-warning">Loading...</div>
+        <div class="spinner-grow text-danger">Loading...</div>
+    </div>
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SPINNERS - unreleased in Bootstrap 4.1
+//-----------------------------------------------------------------
+
+//
+// Rotating border
+//
+
+@keyframes spinner-border {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-border {
+    position: relative;
+    display: inline-block;
+    width: em-calc(15);
+    height: em-calc(15);
+    overflow: hidden;
+    text-indent: -999em;
+    border: em-calc(2) solid;
+    border-color: white transparent white white;
+    border-radius: 50%;
+    animation-name: spinner-border;
+    animation-duration: .75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+
+    .spinner-border {
+        margin-right: rem-calc(10);
+    }
+}
+
+// .spinner-border-reverse {
+//     border-color: transparent currentColor transparent transparent;
+
+//     &::after {
+//         position: absolute;
+//         top: -.25em;
+//         right: -.25em;
+//         bottom: -.25em;
+//         left: -.25em;
+//         display: inline-block;
+//         content: "";
+//         border: .25em solid rgba(0,0,0,.1);
+//         border-radius: 50%;
+//     }
+// }
+
+//
+// Growing circle
+//
+
+// @keyframes spinner-grow {
+//     0% {
+//         opacity: 0;
+//         transform: scale(0);
+//     }
+//     50% {
+//         opacity: 1;
+//     }
+//     100% {
+//         opacity: 0;
+//         transform: scale(1);
+//     }
+// }
+
+// .spinner-grow {
+//     position: relative;
+//     display: inline-block;
+//     width: 2rem;
+//     height: 2rem;
+//     overflow: hidden;
+//     text-indent: -999em;
+//     background-color: currentColor;
+//     border-radius: 50%;
+//     animation-name: spinner-grow;
+//     animation-duration: .75s;
+//     animation-timing-function: linear;
+//     animation-iteration-count: infinite;
+// }
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

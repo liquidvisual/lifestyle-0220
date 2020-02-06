@@ -1,0 +1,38 @@
+# Jekyll configuration precedence:
+# 1. Gruntfile task
+# 2. config.build.yml
+# 3. config.yml
+
+name: liquidvisual-boilerplate
+
+# Grunt handles images and assets.
+# exclude: ['img', 'css', 'scripts', 'fonts', '**.ico']
+
+exclude: ['css', 'assets/scripts']
+include: ['.htaccess', '_pages']
+
+# _config.build.yml sets future and show_drafts to false on `grunt build`
+future: true
+show_drafts: false
+environment: development
+
+# COLLECTIONS (Optional)
+collections:
+  docs:
+    output: true
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# SITEMAP DEFAULTS
+# https://github.com/jekyll/jekyll-sitemap
+# EXCLUDE specific pages/posts from sitemap: set 'sitemap' flag to false in front matter.
+defaults:
+  -
+    scope:
+      path: "assets/example" # an empty string here means all files in the project
+    values:
+      sitemap: false
+
+plugins:
+  - jekyll-sitemap

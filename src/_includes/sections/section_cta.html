@@ -1,0 +1,52 @@
+{% assign settings = site.data.settings %}
+{% assign title = include.title | default: "Call to Action Heading" %}
+{% assign item = settings.offices.qld[0] %}
+
+<!-- CALL TO ACTION -->
+<section class="section section-cta has-image-bg is-tinted" style="background-image: url('/assets/img/content/backgrounds/bg-11.jpg')">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-lg-6">
+
+				<!-- BG FILL -->
+				<div class="bg-fill"></div>
+
+				<!-- HEADING -->
+				<h2 class="text-uppercase mb-3">
+					{{ title }}
+				</h2>
+
+				<!-- CONTACT -->
+				<p class="mb-4">
+
+					<!-- PHONE -->
+				    <a class="h4 d-inline-flex align-items-center text-body mr-3" href="tel:{{ item.phone }}">
+				        <i class="fa fa-phone mr-2"></i>
+				        <span class="text">{{ item.phone }}</span>
+				    </a>
+
+					<!-- EMAIL -->
+				    <a class="h4 d-inline-flex align-items-center text-body" href="tel:{{ item.email }}">
+				        <i class="fa fa-envelope mr-2"></i>
+				        <span class="text">{{ item.email }}</span>
+				    </a>
+
+				</p>
+
+				<!-- WYSIWYG -->
+				<div class="wysiwyg mb-4">
+					<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>
+				</div>
+
+				<!-- BUTTON -->
+				<a class="btn btn-primary" href="/team/">
+					CTA Button Text <i class="fa fa-angle-right"></i>
+				</a>
+
+				<!-- SPACER -->
+				<div class="spacer mb-md-3"></div>
+
+			</div>
+		</div>
+	</div>
+</section>

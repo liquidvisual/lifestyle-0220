@@ -1,0 +1,28 @@
+<!-- LOCATION MODAL -->
+<div id="location-modal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-10 text-center">
+
+                        <!-- PLEASE SELECT YOUR STATE -->
+                        <h4 class="text-center text-white mb-4 pb-2 mx-auto" style="max-width: 586px">
+                            We need to show you specific information for your location. Please select your state:
+                        </h4>
+
+                        <!-- STATE SELECTIONS -->
+                        <ul class="block-grid-xs-2 block-grid-md-5 is-condensed-more">
+                            <li><button onclick="setLocation('qld', 'confirm')" class="btn btn-block btn-primary">QLD</button></li>
+                            <li><button onclick="setLocation('nsw')" class="btn btn-block btn-primary">NSW</button></li>
+                            <li><button onclick="setLocation('nt')" class="btn btn-block btn-primary">NT</button></li>
+                            <li><button onclick="setLocation('tas')" class="btn btn-block btn-primary">TAS</button></li>
+                            <li><button onclick="setLocation('other')" class="btn btn-block btn-primary">Other</button></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{% assign settings = site.data.settings %}
+{% assign logo = page.logo | default: "/assets/img/content/logo@2x.png" %}
+{% assign qld_office = settings.offices['qld'][0] %}
+
+<!-- HEADER BODY -->
+<div class="global-header-body">
+    <div class="container">
+
+        <!-- LOGO -->
+        <a class="logo" href="/" title="{{ settings.title_homepage }}" itemprop="url">
+            <img src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
+        </a>
+
+        <!-- HAMBURGER -->
+        <div class="global-header-hamburger hidden-xl-up">
+            <div class="lv-hamburger" data-menu-toggle>
+                <span class="lv-hamburger-top"></span>
+                <span class="lv-hamburger-middle"></span>
+                <span class="lv-hamburger-bottom"></span>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="global-navigation hidden-lg-down">
+            <div class="lv-nav">
+                {% include components/navigation/nav.html data=site.data.sitemap %}
+            </div>
+        </nav>
+
+    </div>
+
+</div>

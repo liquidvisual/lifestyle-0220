@@ -1,0 +1,352 @@
+/*
+    OFF-CANVAS.CSS
+
+    - Last updated: 28.03.19, 04.03.19, 16.04.18
+    - liquidvisual.com
+
+	- slightly improved from Swellnet, (workskil)
+	- empty hrefs act as whole link
+    - latest update removes 'off-canvas' effect and transforms.
+      Runs jankier, but will handle deep menus
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$body-bg: white !default;
+$menu-bg-color: darken($secondary, 0%); //darken(#3e3e4b, 15%);
+
+$menu-width-xs: 267px;
+$menu-width-sm: 320px; // NEW
+$menu-width-md: 350px;
+
+$hamburger-width: 28px;
+$hamburger-height: $hamburger-width - $hamburger-width/5;
+$hamburger-slit-height: 3px;
+
+//-----------------------------------------------------------------
+// OFF CANVAS
+//-----------------------------------------------------------------
+
+.lv-off-canvas {
+	position: fixed;
+	top: -200%; // fix chrome on touch scroll
+	right: -10%; //-$menu-width-xs;
+	background: $primary;
+	width: $menu-width-xs;
+	height: 100%;
+	transition: opacity ease 230ms, right cubic-bezier(0.250, 0.460, 0.450, 0.940) 230ms;
+	will-change: right;
+	z-index: 9999;
+
+	@include media-breakpoint-up(sm) {
+	    width: $menu-width-sm;
+	}
+
+	@include media-breakpoint-up(md) {
+	    width: $menu-width-md; // [required]
+	}
+}
+
+//-----------------------------------------------------------------
+// ULS
+//-----------------------------------------------------------------
+
+.lv-off-canvas ul {
+	list-style: none;
+	height: 100%;
+	padding: 0 0 50px 0;
+	margin: 0;
+	font-size: 15px; //rem-calc(16);
+	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+
+	&:first-child {
+		padding-top: 10px;
+	}
+}
+
+//-----------------------------------------------------------------
+// DROPDOWNS
+//-----------------------------------------------------------------
+
+.lv-off-canvas .dropdown {
+	position: fixed;
+	top: 0;
+	right: -90%;
+	color: rgba(white, 0.4);
+	// color: white;
+	// color: #686868;
+	width: $menu-width-xs; // [required]
+	height: 100%;
+	background: $primary;
+	// transform: translateX(100%);
+	// transition: transform 300ms ease;
+	transition: right cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms;
+	z-index: 10000;
+
+	@include media-breakpoint-up(sm) {
+	    width: $menu-width-sm;
+	}
+
+	@include media-breakpoint-up(md) {
+	    width: $menu-width-md; // [required]
+	}
+
+	//=========================================
+	// EXPANDER TRIGGER
+	//=========================================
+
+	// &::before,
+	// &::after {
+	// 	content: "\f104";
+	// 	display: block;
+	// 	position: absolute;
+	// 	top: -9px;
+	// 	width: auto;
+	// 	padding: 26px 20px 15px 20px;
+	// 	font-family: "FontAwesome";
+	// 	font-size: 25px;
+	// 	text-transform: uppercase;
+	// }
+
+	//=========================================
+	// BACK TO PREV MENU
+	//=========================================
+
+	// &::before {
+	// 	content: attr(data-parent);
+	// 	position: -webkit-sticky;
+	// 	position: sticky; //- glitchy - is useless
+	// 	top: 0;
+	// 	// position: static;
+	// 	padding-left: 40px;
+	// 	background: darken($menu-bg-color, 5%);
+	// 	font-family: inherit;
+	// 	font-size: inherit;
+	// 	z-index: 2;
+	// 	// opacity: 0.2;
+	// }
+
+	// &:after {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 0;
+	// 	width: 100%;
+	// 	height: 62px; // magic
+	// 	background: rgba(darken($menu-bg-color, 5%), 0.6);
+	// 	z-index: 1000;
+	// }
+
+	//=========================================
+	// BACK BUTTON
+	// http://fatopng.com/fontawesome-to-base64
+	//=========================================
+
+	&:before {
+		content: attr(data-parent);
+		display: block;
+		position: -webkit-sticky;
+		position: sticky; //- glitchy - is useless
+		top: 0;
+		padding: 26px 20px 15px 40px;
+		background: darken($primary, 5%) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADCklEQVR4nO3dP04bQRSA8W9MAgVI+CgUdBHBR8gNAkkkykBF69ZFglsaTI6QG5jUFM4RcgMjpYklPCmslcU/Ad43u++9ma+jYDz6abSY3bEnkGknF7/2Y5gfQ5hszDaHg6Pdm5SvF1IOrrXj0XgU4KD6OcK0M1/rff+89zvVa2YHfR+5KjV2VtBPIVelxM4G+jnkqlTYWUC/FLkqBbZ76NciV0WYrt2+3fn25d0fiXl0JAbR2qrIAAG6Mcy7UnN5IzWQtuogA0SYnAleOlyu6LrIACF2+jKzWeQOWgKZGA7OPr3/KTOjRa7+GMoh7/+QmdEyN9CakcEJtHZkcABtARmMQ1tBBsPQlpDBKLQ1ZDAIbREZjEFbRQZD0JaRwQi0dWQwAO0BGZRDe0EGxdCekEEptDdkUAjtERmUPcqSQI6E/lAZMiha0TLIXA4Pe4dCUxJNBbR3ZFAAnQMytAydCzK0CJ0TMrQEnRsytACdIzI0DJ0rMjQInTMyNASdOzI0AF2QFyWFLsjLkkEX5LslgS7IDxOHLsiPJ7oR/WR09bUgP54odCT26/2+T2QQhD49v94OUOtTTCGGsdB01CUGPTjavYmEYa1BQrw8ubj6KDQlVYleOjZmm/0Ik1qDOMUWf9dxen69/W/97zjATq2BFD7JrlOS99EF+2HJ/jMs2HdLeq+jYC9LfveuYC9q5H50wW7wCUvu2I0+M8wZu/Gn4Llit7KvI0fs1nYq5Ybd6t67nLBb302aC3br0JAHtgpokMTufJD+PiSJ1ECDDHYT35y7SqqgwS+2Omjwia0SGvxhq4UGX9iqocEPtnpo8IFtAhrsY5uBBtvYpqDBLrY5aLCJbRIa7GGbhQZb2KahwQ62eWiwge0CGvRju4EG3diuoEEvtrvjQQZHuzcbs61enU8eBOjOO7d9wWn5W9FVEit7fbbVlTq5092Krqq7siNMJI9HdQsN9bDLEU6vbCXscoTT6r34ml2OcKrfs9jlCCe5nsROvJ3M/TX6fstrduhHmEYYEzu91Hv2/gNusqUPsHA27wAAAABJRU5ErkJggg==') no-repeat 15px 27px;
+		background-size: 17px;
+		// font-size: 16px; // [LOCKED]
+		text-transform: uppercase;
+		z-index: 1000;
+	}
+}
+
+//-----------------------------------------------------------------
+// NO SCROLLBARS
+//-----------------------------------------------------------------
+
+.lv-off-canvas .dropdown::-webkit-scrollbar,
+.lv-off-canvas ul::-webkit-scrollbar {
+	display: none;
+}
+
+//-----------------------------------------------------------------
+// LISTS
+//-----------------------------------------------------------------
+
+.lv-off-canvas ul {
+
+	li {
+		border-bottom: 1px solid rgba(white, 0.1);
+		margin-left: 20px;
+	}
+
+	// li.active > a {
+		// color: $primary;
+	// }
+
+	//=========================================
+	// LIST SPECIAL
+	//=========================================
+
+	li.is-special {
+		border: 0;
+
+		ul {
+			position: static;
+			padding: 0;
+
+			li {
+				margin-left: 0;
+				border: 0;
+			}
+		}
+	}
+
+	//=========================================
+	// NEXT ARROW .has-dropdown > a > .text::after
+	//=========================================
+
+	.has-dropdown > a > .submenu-arrow {
+		content: "\f105";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 44px;
+		height: 100%;
+		border-left: 1px solid rgba(white, 0.1);
+		// background: $menu-bg-color;
+		font-family: "FontAwesome";
+		font-size: 25px;
+		font-weight: normal;
+		color: rgba(white, 0.4);
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.has-dropdown > a[href=''] > .submenu-arrow {
+		left: -21px;// fix border glitch
+		width: calc(100% + 20px);
+		padding-right: 18px;
+		text-align: right;
+		// background: aqua;
+	}
+}
+
+//-----------------------------------------------------------------
+// ANCHORS
+//-----------------------------------------------------------------
+
+.lv-off-canvas a {
+	position: relative;
+	display: block;
+	color: white;
+	padding: 0 40px 0 0;
+	height: 44px;
+	line-height: 44px;
+
+	//=========================================
+	// TRUNCATE TEXT
+	//=========================================
+
+	.text {
+		display: inline-block;
+		width: 95%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+//*****************************************************************
+// HAS OPEN MENU - STATE
+//*****************************************************************
+
+.has-open-menu {
+	overflow: hidden; // [LOCK HTML SCROLL]
+
+	.lv-off-canvas,
+	.lv-off-canvas .dropdown.is-open {
+		// transform: translateX(0);
+		top: 0;
+		right: 0;
+		opacity: 1;
+	}
+}
+
+//-----------------------------------------------------------------
+// HAMBURGER TRIGGER
+//-----------------------------------------------------------------
+
+// .lv-hamburger {
+// 	position: relative;
+// 	width: $hamburger-width;
+// 	height: $hamburger-height;
+// 	cursor: pointer;
+// 	// background: aqua;
+
+// 	.lv-hamburger-top,
+// 	.lv-hamburger-middle,
+// 	.lv-hamburger-bottom {
+// 		position: absolute;
+// 		left: 0;
+// 		width: 100%;
+// 		height: $hamburger-slit-height;
+// 		background-color: #222;
+// 	}
+
+// 	.lv-hamburger-middle {
+// 		top: calc(50% - #{$hamburger-slit-height}/2);
+// 	}
+
+// 	.lv-hamburger-bottom {
+// 		bottom: 0;
+// 	}
+// }
+
+//=========================================
+// HAS MENU OPEN - STATE
+//=========================================
+
+// .has-open-menu {
+// 	.lv-hamburger-top,
+// 	.lv-hamburger-middle,
+// 	.lv-hamburger-bottom {
+// 		transition: transform ease 300ms 300ms;
+// 	}
+
+// 	.lv-hamburger-top {
+// 		transform: rotate(45deg);
+// 		top: calc(50% - #{$hamburger-slit-height/2});
+// 	}
+
+// 	.lv-hamburger-bottom {
+// 		transform: rotate(-45deg);
+// 		top: calc(50% - #{$hamburger-slit-height/2});
+// 	}
+
+// 	.lv-hamburger-middle {
+// 		background: rgba(black, 0.8) !important; // [LOCKED] - override theming
+// 		position: fixed;
+// 		top: 0;
+// 		left: -20px;
+// 		width: 100%;
+// 		height: 130vh; // savior
+// 		z-index: 1;
+// 	}
+// }
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.lv-off-canvas .is-nav-only {
+	display: none; // to hide 'Home' from appearing twice. Remove if client changes this.
+}
+
+.is-off-canvas-only {
+    display: none;
+}
+
+.lv-off-canvas .is-off-canvas-only {
+    display: block;
+    border: 0;
+}

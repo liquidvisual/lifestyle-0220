@@ -1,0 +1,127 @@
+{% comment %}
+<!--
+    HERO DEFAULT
+
+    - Updated: 06.02.19
+    - Complete functionality incl. youtube video, commonly used on homepages
+-->
+{% endcomment %}
+
+{% assign id = include.id %}
+{% assign options = include.options | default: 'is-auto' %}
+{% assign slides = include.data %}
+{% assign youtube_script_included_once = false %}
+{% assign html5_video_script_included_once = false %}
+
+<!-- HERO WRAPPER -->
+<section id="{{ id }}" class="lv-hero-wrapper">
+
+    <!-- HERO -->
+    <div class="lv-hero {{ options }}">
+
+        <!-- HERO ITEMS -->
+        {% for hero_item in slides | limit: 1 %}
+            <div class="lv-hero-item {{ hero_item.options }} is-tinted">
+
+                <!-- HERO SLIDER (OVERLAY BEHIND) -->
+                <div class="lv-hero-item-slider-wrapper has-fade-transition" data-hero-slider>
+                    <div class="lv-hero-item-slider"
+
+                        {% if slides.size > 1 %}
+                            data-flickity='
+                            {
+                                "adaptiveHeight": true,
+                                "autoPlay": 8000,
+                                "cellAlign": "left",
+                                "contain": true,
+                                "draggable": false,
+                                "dragThreshold": 40,
+                                "freeScroll": false,
+                                "freeScrollFriction": 0.075,
+                                "friction": 0.28,
+                                "groupCells": false,
+                                "imagesLoaded": true,
+                                "pageDots": false,
+                                "pauseAutoPlayOnHover": true,
+                                "prevNextButtons": false,
+                                "selectedAttraction": 0.025,
+                                "watchCSS": false,
+                                "wrapAround": true
+                            }'
+                        {% endif %}
+                        >
+
+                        {% for item in slides %}
+                            <div class="lv-hero-item-slide" style="background-image: url('{{ hero_item.image }}')">
+
+                                {% if hero_item.scroll_prompt %}
+                                    <!-- SCROLL PROMPT -->
+                                    <a class="lv-hero-scroll-prompt hidden-lg-down"><i class="fa fa-angle-down"></i></a>
+                                {% endif %}
+
+                                {% if hero_item.youtube_id %}
+                                    {% include components/hero/hero__youtube_plugin.html %}
+                                {% elsif hero_item.vimeo_id %}
+                                    {% include components/hero/hero__vimeo_plugin.html %}
+                                {% elsif hero_item.video %}
+                                    {% include components/hero/hero__html5_video_plugin.html %}
+                                {% endif %}
+
+                                {% comment %}
+                                <!-- PARALLAX (OPTIONAL) -->
+                                {% unless hero_item.youtube_id or hero_item.vimeo_id  %}
+                                    {% if hero_item.image %}
+                                        {% include components/hero/hero__parallax_plugin.html image=hero_item.image %}
+                                    {% endif %}
+                                {% endunless  %}
+                                {% endcomment %}
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div> <!-- /.hero-item-slider-wrapper -->
+
+                <!-- HERO CAPTION -->
+                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+
+                    <!-- CAPTION TOP -->
+                    <section class="section lv-hero-item-caption-top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-xl-6">
+
+                                    <!-- HEADER -->
+                                    <h1 class="h2 text-uppercase mb-4">
+                                        Hello,<br>
+                                        We are Lifestyle Coffins
+                                    </h1>
+
+                                    <h3 class="mb-4">We personalise coffins for funeral services</h3>
+
+                                    <a href="#" class="btn btn-secondary">
+                                        See our Designs
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div> <!-- /.lv-hero-item-caption -->
+            </div> <!-- /.lv-hero-item -->
+        {% endfor %}
+
+    </div> <!-- /.lv-hero -->
+
+    {% comment %}
+    {% if slides.size > 1 %}
+        <!-- SLIDER CONTROLS -->
+        <div class="lv-hero-slider-controls hidden-lg-down">
+            <span class="lv-hero-slider-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span class="lv-hero-slider-next-btn"><i class="fa fa-angle-right"></i></span>
+        </div>
+    {% endif %}
+    {% endcomment %}
+
+</section> <!-- /.lv-hero-wrapper -->

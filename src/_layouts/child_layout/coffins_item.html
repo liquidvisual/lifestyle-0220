@@ -1,0 +1,40 @@
+---
+layout: base__page
+---
+
+<!-- LEAD -->
+<p class="lead mb-4">
+	{{ page.lead }}
+</p>
+
+<!-- WYSIWYG -->
+<div class="wysiwyg mb-4">
+	{{ content }}
+</div>
+
+<!-- LINKS TEMPLATE (OPTIONAL) -->
+<div>
+	<p class="mb-1">
+		<a class="btn btn-block side-btn text-left" href="#">
+			<i class="fa fa-file-pdf-o icon mr-2"></i>
+			<span class="text">
+				<strong>Download link example</strong>
+			</span>
+			<i class="ml-auto fa fa-angle-right"></i>
+		</a>
+	</p>
+	<p class="mb-1">
+		<a class="btn btn-block side-btn text-left" href="#">
+			<i class="fa fa-file-pdf-o icon mr-2"></i>
+			<span class="text">
+				<strong>Download link example</strong>
+			</span>
+			<i class="ml-auto fa fa-angle-right"></i>
+		</a>
+	</p>
+</div>
+
+{% contentfor content_additional %}
+	{% include sections/section_cta.html %}
+	{% include sections/section_blog_latest.html title="Blogs - Criminal Defence" %}
+{% endcontentfor %}

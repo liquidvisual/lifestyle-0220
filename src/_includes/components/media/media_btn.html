@@ -1,0 +1,26 @@
+<!-- MEDIA BTN -->
+<a href="{{ item.url }}">
+    <div class="media media-btn">
+
+        <!-- MEDIA IMAGE -->
+		<div class="media-img btn-tile mr-2">
+			<img width="100%" src="/assets/img/ui/no-face.png" alt="{{ item.name }}">
+			<span class="btn-tile-bg" style="background-image: url({{ item.image }}); background-position: top center;"></span>
+		</div>
+
+		<!-- MEDIA BODY -->
+        <div class="media-body">
+
+            <!-- TITLE -->
+            <h6 class="media-title text-primary mb-1">
+            	{{ item.name }}
+            </h6>
+
+            <!-- POSITION + LOCATION -->
+            <p class="text-muted">
+            	{{ item.position}}<br>
+            	{{ item.location }}
+            </p>
+        </div>
+    </div>
+</a>

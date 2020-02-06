@@ -1,0 +1,78 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<!-- WHERE TO BUY -->
+<section class="section">
+    <div class="container">
+
+        <!-- HEADING -->
+        <h2 class="fancy-heading text-center text-uppercase mb-5">
+            <span class="font-weight-bolder">Where</span> <span class="font-weight-lighter">to Buy</span>
+        </h2>
+
+        <!-- WYSIWYG #1 -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-11">
+                <div class="wysiwyg text-center">
+                    <p>ENTER YOUR SUBURB OR POSTCODE TO FIND A LOCAL FUNERAL HOME THAT OFFERS LIFESTYLE COFFINS.</p>
+                    <p>Nulla sed mi leo, sit amet molestie nulla. Phasellus lobortis blandit ipsum, at adipiscing eros porta quis. Phasellus in nisi ipsum,
+                    quis dapibus magna. Phasellus odio dolor, pretium sit amet aliquam a, gravida eget dui. Pellentesque eu ipsum et quam
+                    faucibus scelerisque vitae ut ligula. Ut luctus fermentum commodo. Mauris eget justo turpis, eget fringilla mi. Duis lobortis
+                    ursus mi vel tristique. Maecenas eu lorem hendrerit neque dapibus cursus id sit amet nisi. Proin rhoncus semper sem</p>
+
+                    <p>Nulla sed mi leo, sit amet molestie nulla. Phasellus lobortis blandit ipsum, at adipiscing eros porta quis. Phasellus in nisi ipsum,
+                    quis dapibus magna. Phasellus odio dolor, pretium sit amet aliquam a, gravida eget dui. Pellentesque eu ipsum et quam
+                    faucibus scelerisque vitae ut ligula. Ut luctus fermentum commodo. Mauris eget justo turpis, eget fringilla mi. Duis lobortis
+                    ursus mi vel tristique. Maecenas eu lorem hendrerit neque dapibus cursus id sit amet nisi. Proin rhoncus semper sem</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAP WIDGET HERE -->
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                {% include components/widgets/google_map.html %}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT US -->
+<section class="section is-quaternary">
+    <div class="container">
+
+        <!-- HEADING -->
+        <h2 class="fancy-heading text-center text-uppercase mb-4">
+            <span class="font-weight-bolder">Contact</span> <span class="font-weight-lighter">Us</span>
+        </h2>
+
+        <!-- LEAD -->
+        <p class="h3 text-center mb-5">
+            <i class="fa fa-phone"></i> 1800 095 829
+        </p>
+
+        <!-- WYSIWYG #1 -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-11">
+                <div class="wysiwyg text-center">
+                    <p>Nulla sed mi leo, sit amet molestie nulla. Phasellus lobortis blandit ipsum, at adipiscing eros porta quis. Phasellus in nisi ipsum,
+                    quis dapibus magna. Phasellus odio dolor, pretium sit amet aliquam a, gravida eget dui. Pellentesque eu ipsum et quam
+                    faucibus scelerisque vitae ut ligula. Ut luctus fermentum commodo. Mauris eget justo turpis, eget fringilla mi. Duis lobortis
+                    ursus mi vel tristique. Maecenas eu lorem hendrerit neque dapibus cursus id sit amet nisi. Proin rhoncus semper sem</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {% include components/forms/form_contact.html %}
+            </div>
+        </div>
+
+    </div>
+</section>

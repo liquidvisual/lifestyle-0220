@@ -1,0 +1,86 @@
+/*
+    MODAL.CSS
+
+    - Last updated: 04.02.18
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// MODAL LOCATION
+//-----------------------------------------------------------------
+
+.modal {
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: rem-calc(10 20);
+		font-size: rem-calc(40);
+		z-index: 1;
+	}
+
+	.modal-content {
+		min-height: rem-calc(445);
+		margin: rem-calc(20);
+
+		.modal-body {
+			min-height: inherit; // fixes IE11 woo
+		}
+
+		.btn {
+			display: block;
+			text-transform: none;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// BOOTSTRAP HACK
+// remove inline padding forced by BS in the JS
+// to prevent scrollbar jump, reassign to lv-page
+//-----------------------------------------------------------------
+
+body[style] {
+	padding-right: 0 !important;
+}
+
+body.modal-open, {
+	.lv-page {
+		position: relative;
+		overflow-y: scroll;
+	}
+}
+
+//-----------------------------------------------------------------
+// STATE HEADING
+// changes depending on data-location (JS)
+//-----------------------------------------------------------------
+
+body[data-location='qld']   .modal-state-sync-text:after { content: 'Queensland'; }
+body[data-location='nsw']   .modal-state-sync-text:after { content: 'New South Wales'; }
+body[data-location='nt']    .modal-state-sync-text:after { content: 'Northern Territory'; }
+body[data-location='tas']   .modal-state-sync-text:after { content: 'Tasmania'; }
+body[data-location='other'] .modal-state-sync-text:after { content: 'Other'; }
+
+//-----------------------------------------------------------------
+// VISIBILITY
+//-----------------------------------------------------------------
+
+[data-visible-for] {
+	display: none;
+}
+
+body[data-location='qld'] [data-visible-for*='qld'] { display: block; }
+body[data-location='nsw'] [data-visible-for*='nsw'] { display: block; }
+body[data-location='nt'] [data-visible-for*='nt'] { display: block; }
+body[data-location='tas'] [data-visible-for*='tas'] { display: block; }
+body[data-location='other'] [data-visible-for*='other'] { display: block; }
+
+// show OTHER for SEO when no choice is made
+body[data-location=''] [data-visible-for*='other'] { display: block; }
+
+//=========================================
+//
+//=========================================

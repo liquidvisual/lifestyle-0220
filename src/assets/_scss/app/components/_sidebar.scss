@@ -1,0 +1,216 @@
+/*
+    SIDEBAR.CSS
+
+    - Last updated: 04.02.19
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SIDEBAR SECTION
+// reduce on medium where the stack gap is large
+//-----------------------------------------------------------------
+
+.sidebar .section {
+    @include media-breakpoint-down(md) {
+        // padding: 0;
+    }
+}
+
+.sidebar.ml-auto .section {
+    @include media-breakpoint-down(md) {
+        overflow: visible;
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBAR
+//-----------------------------------------------------------------
+
+.sidebar {
+    position: relative;
+    height: 100%; // [LOCKED]
+    z-index: 1;
+
+    @include media-breakpoint-down(md) {
+        max-width: none !important; // override inline style
+    }
+
+    .bg-fill {
+        position: absolute;
+        left: -20px;
+        top: 0;
+        width: 100vw;
+        height: 100%;
+        background: $secondary;
+        z-index: -1;
+
+        @include media-breakpoint-up(md) {
+            left: -30px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            left: 0;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBAR TEAM
+//-----------------------------------------------------------------
+
+.side-team {
+    padding: $spacer*3 0; // since sections get stripped padding in sidebar
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+        margin-left: rem-calc(45);
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: rem-calc(585);
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBOX
+//-----------------------------------------------------------------
+
+.sidebox {
+    padding: rem-calc(22);
+    // margin-bottom: 2px;
+    background-color: #f0eeee; //#f0f0f1; //#e3e3e5; //#f0f0f1; //#e7e7e7; TODO: var this;
+    color: $yiq-text-dark; //#393939;
+
+    @include media-breakpoint-up(xl) {
+        // padding: rem-calc(25 38); // on contact
+        padding: rem-calc(22 28);
+    }
+
+    h3 {
+        width: calc(100% + #{rem-calc(22*2)});
+        margin-left: rem-calc(-22);
+        padding-left: rem-calc(22);
+    	padding-bottom: rem-calc(20);
+    	border-bottom: 1px solid darken(#f0eeee, 10%);
+        font-weight: $font-weight-bold;
+
+        @include media-breakpoint-up(xl) {
+            width: calc(100% + #{rem-calc(28*2)});
+            margin-left: rem-calc(-28);
+            padding-left: rem-calc(28);
+        }
+    }
+
+    a {
+        color: #393939;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    .fa.mr-2 {
+        min-width: rem-calc(20);
+        font-size: rem-calc(17);
+        text-align: center;
+    }
+}
+
+//-----------------------------------------------------------------
+// INNER BLOCK GRID
+//-----------------------------------------------------------------
+
+.sidebox {
+	[class*="block-grid-"] {
+		margin: rem-calc(-10);
+	}
+
+	[class*="block-grid-"] > li,
+		.block-grid-item {
+		padding: rem-calc(10);
+	}
+}
+
+//-----------------------------------------------------------------
+// AUTHOR BOX
+//-----------------------------------------------------------------
+
+.author-box {
+
+    p {
+        font-size: rem-calc(13);
+    }
+
+    .author-box-header {
+        padding: rem-calc(20);
+        margin: 0;
+        // background: #e7e7e7;
+        background-color: darken(#f0f0f1, 3%);
+    }
+
+    .author-box-body {
+        padding: rem-calc(20);
+        background: #f0f0f1; //#eeeeee;
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+
+.side-btn {
+    padding: rem-calc(15 15 15 15);
+    background: #efeeee; // TODO: var this; //darken(#f0f0f1, 5%); //#d8d5d5;
+    border: none;
+    color: $yiq-text-dark;
+    font-weight: $font-weight-normal;
+    text-transform: none;
+
+    .text {
+        padding-right: rem-calc(15);
+    }
+
+    .fa-angle-right {
+        font-size: rem-calc(34);
+    }
+
+    .icon {
+        font-size: rem-calc(28);
+    }
+
+    &:hover {
+        background: darken(#efeeee, 3%);
+        color: $yiq-text-dark;
+    }
+}
+
+//-----------------------------------------------------------------
+// ADHOC SIDE-FORM
+// used in contact pages
+//-----------------------------------------------------------------
+
+.side-form {
+    padding: rem-calc(30 0);
+
+    @include media-breakpoint-up(lg) {
+        padding: rem-calc(0 0 0 30);
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding: rem-calc(0 0 0 45);
+    }
+
+    .side-form-heading .fa {
+        line-height: 0;
+        opacity: 0.3;
+
+        @include media-breakpoint-up(xl) {
+            font-size: rem-calc(48);
+        }
+    }
+}
+
+//=========================================
+//
+//=========================================

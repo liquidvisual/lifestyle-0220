@@ -1,0 +1,155 @@
+/*
+    TEXT-EDITOR.CSS
+
+    - updated: 31.07.19
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$spacer: rem-calc(20) !default;
+$font-family-sans-serif: inherit !default;
+$font-family-serif: inherit !default;
+
+//-----------------------------------------------------------------
+// IMAGES
+//-----------------------------------------------------------------
+
+.wysiwyg img {
+	max-width: 100%;
+}
+
+//-----------------------------------------------------------------
+// IMAGE ALIGNMENT
+//-----------------------------------------------------------------
+
+.img-left {
+	margin-bottom: rem-calc(30);
+
+	@include media-breakpoint-up(md) {
+	    float: left;
+	    margin: rem-calc(30 30 0 0);
+	}
+}
+
+.img-right {
+	margin-bottom: rem-calc(30);
+
+	@include media-breakpoint-up(xxl) {
+	    float: right;
+	    margin: rem-calc(0 0 30 50);
+	}
+}
+
+.img-left img,
+.img-right img {
+	@include media-breakpoint-down(xl) {
+		width: 100%;
+		max-width: 100% !important; // [LOCKED] - handles case where template determines desktop default width
+	}
+}
+
+//-----------------------------------------------------------------
+// FONTS
+//-----------------------------------------------------------------
+
+.font-family-serif {
+	font-family: $font-family-serif;
+}
+
+.font-family-sans-serif {
+	font-family: $font-family-sans-serif;
+}
+
+//-----------------------------------------------------------------
+// WYSIWYG TYPE
+//-----------------------------------------------------------------
+
+.wysiwyg {
+	color: #6f716f; // BODY - requested
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: rem-calc(25);
+		color: $body-color;
+		// @extend .text-dark;
+	}
+
+	h1 { font-size: rem-calc(38); }
+	h2 { font-size: rem-calc(25); }
+	h3 { font-size: rem-calc(20); }
+	h4 { font-size: rem-calc(18); }
+	h5, h6 { font-size: rem-calc(16); }
+
+	// LEAD
+	.lead,
+	p.lead {
+		margin-bottom: 2.75rem;
+	}
+
+
+
+	// contact item one off
+	&.text-white * {
+		color: white !important;
+	}
+}
+
+//-----------------------------------------------------------------
+// WYSIWYG - OTHER
+//-----------------------------------------------------------------
+
+.wysiwyg {
+
+	// BLOCKS
+	p, ul, ol, hr {
+		margin-bottom: rem-calc(20);
+	}
+
+	// LISTS
+	ul, ol {
+		@include media-breakpoint-down(sm) {
+		    padding-left: rem-calc(30);
+		}
+
+		li {
+			margin-bottom: rem-calc(15);
+		}
+	}
+
+	// TABLES
+	table {
+		width: 100% !important;
+		border: none !important;
+		margin-bottom: 1rem;
+		margin-top: 2rem;
+		border-top: 1px solid #e5e5e5 !important;
+
+		td {
+			border: none !important;
+			border-bottom: 1px solid #e5e5e5 !important;
+			padding: 0.8rem;
+		}
+	}
+}
+
+//=========================================
+// HERO
+//=========================================
+
+.lv-hero-item-caption .wysiwyg p {
+	margin-bottom: $spacer;
+}
+
+//=========================================
+// special case - if leads are inside WYSIWYG
+//=========================================
+
+p.lead,
+.wysiwyg p.lead {
+	color: $body-color; // repeated
+}
+
+//=========================================
+//
+//=========================================

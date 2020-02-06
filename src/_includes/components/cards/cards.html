@@ -1,0 +1,20 @@
+{% assign columns = include.columns | default: 3 %}
+{% assign posts = site.data.lorem_ipsum %}
+
+{% capture column_classes %}
+	{% if columns == 4 %}
+		col-md-6 col-xl-3
+	{% elsif columns == 3 %}
+		col-md-6 col-lg-4
+	{% else %}
+		col-md-6 col-lg-6
+	{% endif %}
+{% endcapture %}
+
+<div class="row">
+	{% for item in posts | limit: columns | offset: 5 %}
+		<div class="{{ column_classes }} mb-4">
+			{% include components/cards/card.html %}
+		</div>
+	{% endfor %}
+</div>

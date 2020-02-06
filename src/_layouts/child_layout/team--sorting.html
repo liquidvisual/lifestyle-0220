@@ -1,0 +1,105 @@
+---
+layout: base__page
+---
+
+<script>
+	var staffList = [
+		{ name: 'Glen Cranny', position: 'Managing Director', image: '/assets/img/content/team/glen-cranny@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Craig Pratt', position: 'Director', image: '/assets/img/content/team/craig-pratt@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Melanie Morris', position: 'Senior Associate', image: '/assets/img/content/team/melanie-morris@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Callan Lloyd', position: 'Senior Associate', image: '/assets/img/content/team/callan-lloyd@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Patrick Quinn', position: 'Senior Associate', image: '/assets/img/content/team/patrick-quinn@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Sarah Ford', position: 'Associate', image: '/assets/img/content/team/sarah-ford@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Rachel Tierney', position: 'Lawyer', image: '/assets/img/content/team/rachel-tierney@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Claire McGee', position: 'Lawyer', image: '/assets/img/content/team/claire-mcgee@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Eleanor Lynch', position: 'Lawyer', image: '/assets/img/content/team/eleanor-lynch@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Natalie Smith', position: 'Lawyer', image: '/assets/img/content/team/natalie-smith@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Kerrie Bolte', position: 'Office Manager', image: '/assets/img/content/team/kerrie-bolte@2x.jpg', url: '/team/team-item/' },
+		{ name: 'Michelle Crawford', position: 'Librarian / Accounts Clerk', image: '/assets/img/content/team/michelle-crawford@2x.jpg', url: '/team/team-item/' }
+	];
+</script>
+
+<!-- SECTION -->
+<section id="vue-staff-app">
+	<div class="container">
+		<div class="row align-items-end">
+			<div class="col-md-8 pr-md-4">
+
+				{% comment %}
+				<!-- LEAD -->
+				<p class="lead mb-4">
+					{{ page.lead }}
+				</p>
+
+				<!-- WYSIWYG -->
+				<div class="wysiwyg mb-4 mb-md-0">
+					{{ content | markdownify }}
+				</div>
+				{% endcomment %}
+
+			</div>
+			<div class="col-md-4 pl-md-5">
+
+				<!-- FORM SORT SELECT -->
+				<!-- <div class="form-sort-select d-flex align-items-center ml-xxl-5">
+					<span class="text">Sort by:</span>
+					<sort-select
+						v-model="sortOrder"
+						:sort-options="sortOptions">
+					</sort-select>
+				</div> -->
+
+			</div>
+		</div>
+
+		<!-- SPACER -->
+		<div class="spacer mb-3 mb-md-5"></div>
+
+		<!-- STAFF LIST -->
+		<transition-group
+			v-cloak
+			name="staffTransition"
+			tag="ul"
+			class="block-grid-xs-2 block-grid-lg-4 block-grid-xl-5 is-condensed mb-5"
+		>
+			<li
+				v-for="(item, index) in sort(sortOrder)"
+				:key="item.name"
+			>
+
+				<!-- CARD -->
+				<div class="card is-flat">
+
+					<!-- IMAGE -->
+					<a class="btn-tile" :href="item.url">
+						<img width="100%" class="card-img-top" src="/assets/img/ui/no-face.png" :alt="item.name">
+						<span v-if="!item.image" class="btn-tile-bg" style="background-image: url('/assets/img/ui/no-face.png');"></span>
+						<span v-if="item.image" class="btn-tile-bg" :style="{ backgroundImage: 'url(' + item.image +')' }"></span>
+					</a>
+
+					<!-- CARD BODY -->
+					<div class="card-body d-flex flex-column">
+
+						<!-- TITLE -->
+						<a :href="item.url">
+							<h3 class="h5 text-uppercase card-title mb-1" v-text="item.name"></h3>
+						</a>
+
+						<!-- POSITION + LOCATION -->
+						<p class="text-muted h6 font-weight-normal">
+							<span v-text="item.position"></span>
+						</p>
+
+					</div>
+				</div>
+			</li>
+		</transition>
+
+	</div>
+</section>
+
+<style>
+	.staffTransition-move {
+		transition: transform 600ms ease;
+	}
+</style>

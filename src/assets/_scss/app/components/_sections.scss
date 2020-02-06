@@ -1,0 +1,357 @@
+/*
+    SECTIONS.CSS
+
+    - updated: 15.09.18
+    - liquidvisual.com
+
+    GLOSSARY:
+
+        .section
+            &.has-image-bg
+                &.is-fixed
+                &.is-tinted
+                &.is-parallax
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SECTION
+//-----------------------------------------------------------------
+
+.section {
+    overflow: hidden; // used for the sidebar atm, and bleeding, not good practice but too far along
+
+    > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .bg-fill {
+        position: absolute;
+        top: -50vh;
+        left: rem-calc(-40);
+        width: 200vw;
+        height: 200vh;
+        background: rgba(#09243a, 0.57);
+        pointer-events: none;
+        z-index: -1;
+
+        &.is-white {
+            background: white;
+        }
+
+        @include media-breakpoint-up(lg) {
+            // left: rem-calc(-140);
+            left: rem-calc(-98);
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION
+//-----------------------------------------------------------------
+
+.section {
+    position: relative;
+    padding: ($spacer * 2.5) 0;
+
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(70 0); //($spacer * 3) 0;
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION COLORS
+//-----------------------------------------------------------------
+
+.section {
+    &.is-dark {
+        color: white;
+
+        h1, h2, h3, h4, h5, h6,
+        .btn {
+            color: white;
+        }
+
+        hr {
+            border-color: rgba(white, 0.3);
+        }
+    }
+
+    &.is-primary {
+        background: $primary;
+        color: white;
+
+        .card {
+            background: none;
+            color: white;
+
+            h3 {
+                color: white;
+            }
+        }
+    }
+
+    &.is-secondary {
+        background: $secondary;
+        color: white;
+
+        .card {
+            background: none;
+            color: white;
+
+            h3 {
+                color: white;
+            }
+        }
+    }
+
+    &.is-tertiary {
+        background: $tertiary;
+        color: $body-color;
+
+        .card {
+            background: none;
+            color: white;
+
+            h3 {
+                color: $body-color;
+            }
+        }
+    }
+
+    &.is-quaternary {
+        background: $quaternary;
+        color: $body-color;
+
+        .card {
+            background: white;
+            color: $body-color;
+
+            h3 {
+                color: $body-color;
+            }
+        }
+    }
+
+    &.has-light-gradient {
+        background: linear-gradient(to bottom, #fbfaf9 0%, white 40%);
+    }
+
+    &.is-gray { // client request
+        @include media-breakpoint-down(sm) {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+            background-color: #f0f0f1;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// HAS IMAGE BG
+//-----------------------------------------------------------------
+
+.has-image-bg,
+.section[style~=background-image] {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    //=========================================
+    // IS FIXED
+    //=========================================
+
+	&.is-fixed {
+		@include media-breakpoint-up(xl) {
+	    	background-attachment: fixed;
+		}
+	}
+
+    //=========================================
+    // IS TINTED
+    //=========================================
+
+    &.is-tinted {
+        > .container {
+            position: relative;
+            z-index: 1; // [LOCKED]
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(#181818, 0.20); //rgba(black, 0.6); //rgba(#222, 0.6);
+            z-index: 1; // [LOCKED] - for tint over parallax
+        }
+    }
+
+    //=========================================
+    // IS PARALLAX
+    //=========================================
+
+    &.is-parallax {
+        > .container {
+            position: relative; // allow parallax to slink behind
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// ADHOC STYLING OF CONTACT BOX
+// on /contact/contact-item/
+//-----------------------------------------------------------------
+
+.section-map {
+    pointer-events: none;
+    z-index: 1;
+
+    @include media-breakpoint-only(md) {
+        height: rem-calc(600); // because the sidebar is now stacked and gone
+    }
+
+    .sidebox {
+        pointer-events: auto;
+        padding-top: rem-calc(30);
+
+        @include media-breakpoint-up(md) {
+            max-width: rem-calc(430);
+            box-shadow: 4px 4px 4px -1px rgba(black, 0.2);
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION CTA
+//-----------------------------------------------------------------
+
+.section-cta {
+
+    // .has-image-bg {
+    //     background-position: 10%;
+    // }
+
+    // .bg-fill.is-white {
+    //     background-image: linear-gradient(-180deg, darken(#fafafa, 15%) 0%, white 24%);
+    // }
+
+    // a {
+    //     @include media-breakpoint-down(md) {
+    //         font-size: rem-calc(19);
+    //     }
+    // }
+
+    .bg-fill {
+        left: auto; // override
+        right: rem-calc(-40);
+        background: rgba(white, 0.71);
+
+        @include media-breakpoint-up(lg) {
+
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION ABOUT US
+//-----------------------------------------------------------------
+
+.section-about-us {
+    &:before {
+        background-color: rgba($secondary, 0.84) !important;
+    //     @include media-breakpoint-up(lg) {
+    //         display: none;
+    //     }
+    }
+
+    @include media-breakpoint-up(lg) {
+        // padding-bottom: rem-calc(280);
+        padding: rem-calc(184 0);
+
+        // > .container {
+        //     &:after {
+        //         content: "";
+        //         position: absolute;
+        //         bottom: -60px;
+        //         left: -100vw;
+        //         width: 200vw;
+        //         height: 200%;
+        //         background: rgba($secondary, 0.84);
+        //         z-index: -1;
+        //     }
+        // }
+
+        // &.is-tinted:before {
+        //     height: 70%;
+        // }
+
+        .wysiwyg p {
+            font-size: rem-calc(20);
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION TESTIMONIALS
+//-----------------------------------------------------------------
+
+.section-testimonials {
+
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(0 0 0 0);
+    }
+
+    // white lady funerals
+    .img {
+        position: relative;
+        top: rem-calc(40);
+    }
+
+    .testimonial-box {
+        position: relative;
+        max-width: rem-calc(820);
+        padding: rem-calc(30);
+        background-color: white;
+
+        &:before {
+            @include media-breakpoint-up(md) {
+                content: "";
+                position: absolute;
+                top: rem-calc(40);
+                left: -30px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 30px 30px;
+                border-color: transparent transparent white transparent;
+            }
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// SECTION COMPANIES
+//-----------------------------------------------------------------
+
+// .section-testimonials-carousel {
+//     @include media-breakpoint-up(md) {
+//         padding: rem-calc(50 0);
+//     }
+// }
+
+.section-companies {
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(64 0 15 0);
+    }
+}
+
+//=========================================
+//
+//=========================================

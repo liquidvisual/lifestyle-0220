@@ -1,0 +1,130 @@
+{% comment %}
+<!--
+    NAV.HTML - RECURSIVE
+
+    - updated: 31.07.19, 16.06.19, 26.03.19
+    - notes: based off Swellnet, but includes social media
+
+    OUTPUT EG:
+
+        <ul>
+            <li class="active"><a href="/">LINK</a></li>
+            <li><a href="#"><span class="text">LINK</span></a></li>
+            <li class="has-dropdown">
+                <a href="#">
+                    <span class="text">LINK</span>
+                    <span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>
+                </a>
+                <ul class="dropdown" data-parent="LINK">
+                    <li><a href="#"><span class="text">LINK</span></a></li>
+                </ul>
+            </li>
+        </ul>
+-->
+{% endcomment %}
+
+{% assign data = include.data %}
+
+{%- capture ul_classes -%}
+    {% if forloop %} dropdown {% endif %}
+    {% if item.children_excluded_from_nav %} is-excluded-from-nav {% endif %}
+{%- endcapture -%}
+
+<ul class="{{ ul_classes }}" data-parent="{{ name }}">
+    {% for node in data %}
+
+        {% assign item = node[1] %}
+        {% assign children = item.children %}
+        {% assign name = node[0] %}
+
+        {%- capture li_classes -%}
+
+            {% if children %}
+                has-dropdown
+                {% for item in children %}
+                    {% if page.url contains item[1].url %}
+                        active-parent
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if children and page.url == item.url %}
+                active-parent
+            {% endif %}
+
+            {% if page.url == item.url %}
+                active
+            {% endif %}
+
+            {% if children and forloop.last %}
+                is-right-aligned
+            {% endif %}
+
+            {% if item.classes %}
+                {{ item.classes }}
+            {% endif %}
+        {%- endcapture -%}
+
+        <li class="{{ li_classes }}" data-hook="{{ name | slugify }}">
+
+            <!-- ANCHOR -->
+            <a href="{{ item.url }}">
+
+                <!-- TEXT -->
+                <span class="text">
+                    {{- name -}}
+                </span>
+
+                <!-- SUBMENU ARROW -->
+                {% if children %}
+                    <span class="submenu-arrow">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                {% endif %}
+
+            </a>
+
+            {% if children %}
+                <!-- DROPDOWN -->
+                {% include components/navigation/nav.html data=children %}
+            {% endif %}
+
+        </li>
+    {% endfor %}
+
+    {% if forloop.index == null %}
+
+        <!-- CONTACT -->
+        <li class="is-off-canvas-only pt-3">
+
+            {% comment %}
+            <!-- PHONE -->
+            <a href="tel:{{ qld_office.phone }}">
+                <i class="fa fa-phone"></i>&nbsp;
+                <span>{{ qld_office.phone }}</span>
+            </a>
+
+            <!-- EMAIL -->
+            <a href="mailto:{{ qld_office.email }}">
+                <i class="fa fa-envelope"></i>&nbsp;
+                <span>{{ qld_office.email }}</span>
+            </a>
+            {% endcomment %}
+
+        </li>
+
+    {% endif %}
+
+    {% comment %}
+        <!-- SOCIAL MEDIA -->
+        <li class="is-off-canvas-only">
+            {% include components/widgets/social_media.html preset=3 %}
+        </li>
+
+        <!-- SEARCH (OPTIONAL) -->
+        <li class="is-off-canvas-only">
+            {% include components/forms/form_search.html %}
+        </li>
+    {% endcomment %}
+</ul>
