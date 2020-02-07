@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/blog/</loc>
-</url>
-<url>
-<loc>/blog/blog-item/</loc>
+<loc>/ash-boxes/</loc>
 </url>
 <url>
 <loc>/coffins/</loc>
@@ -17,6 +14,12 @@
 </url>
 <url>
 <loc>/</loc>
+</url>
+<url>
+<loc>/latest/</loc>
+</url>
+<url>
+<loc>/latest/latest-item/</loc>
 </url>
 <url>
 <loc>/search/</loc>
@@ -34,9 +37,6 @@
 <loc>/site-map/</loc>
 </url>
 <url>
-<loc>/team/</loc>
-</url>
-<url>
-<loc>/team/team-item/</loc>
+<loc>/stockists/</loc>
 </url>
 </urlset>
