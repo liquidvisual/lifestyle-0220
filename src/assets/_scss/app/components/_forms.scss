@@ -156,13 +156,19 @@ fieldset {
 		z-index: 10;
 
 		&:after {
-			content: "→";
+			content: "\f105";
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
 			top: 0;
 			right: 0;
 			width: rem-calc(40);
 			height: 100%;
-			line-height: rem-calc(40);
+			font-family: 'FontAwesome';
+			font-size: rem-calc(20);
+			font-weight: 100;
+			line-height: 0; //rem-calc(38);
 			background-color: #3a3a3a;
 			transition: 200ms ease background;
 		}

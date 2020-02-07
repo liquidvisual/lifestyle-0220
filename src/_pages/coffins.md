@@ -6,7 +6,7 @@ subpage_path:
   - 'Services'
 
 hero_options:
-hero_image: /assets/img/content/backgrounds/bg-04.jpg
+hero_image: /assets/img/content/backgrounds/placeholder-02.jpg
 lead: |
   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
 ---

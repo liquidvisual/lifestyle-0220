@@ -9,9 +9,8 @@
 {% endcomment %}
 
 {% assign id = include.id %}
-{% assign options = include.options | default: 'is-short' %}
-{% assign slides = include.data | default: site.data.hero_slides %}
-{% assign bg_image = page.hero_image %}
+{% assign options = include.options | default: 'is-large' %}
+{% assign bg_image = page.hero_image | default: '/assets/img/content/backgrounds/placeholder-01.jpg' %}
 
 <!-- HERO WRAPPER -->
 <section id="{{ id }}" class="lv-hero-wrapper">
@@ -20,11 +19,11 @@
     <div class="lv-hero {{ options }}">
 
         <!-- HERO ITEMS -->
-        <div class="lv-hero-item align-items-end is-tinted {{ options }}" style="background-image: url('{{ bg_image }}')">
+        <div class="lv-hero-item align-items-end {{ options }}" style="background-image: url('{{ bg_image }}')">
 
             <!-- HERO CAPTION -->
             <div class="lv-hero-item-caption animated fadeInLeftSubtle">
-                <div class="container">
+
 
                     {% ifhascontent hero_caption %}
                         {% contentblock hero_caption no-convert %}
@@ -54,7 +53,7 @@
 
                     {% endifnothascontent %}
 
-                </div>
+
             </div>
         </div>
 

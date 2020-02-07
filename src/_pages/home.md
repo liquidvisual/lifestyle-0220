@@ -1,16 +1,10 @@
 ---
 layout: base__homepage
-title: Leaders in Criminal Law and Professional Misconduct Law
+title:
 permalink: /
 regenerate: true
 hero_options: is-home
-hero_slides:
-  - title: Hero #1
-    image: /assets/img/content/backgrounds/bg-01a.jpg
-    #youtube_id:
-    #video:
-      #- /assets/video/video-1.webm
-      #- /assets/video/video-1.mp4
+hero_image: /assets/img/content/backgrounds/placeholder-01.jpg
 
 wysiwyg: |
   We are leaders in criminal law and professional misconduct law in Queensland.

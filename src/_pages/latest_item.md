@@ -1,9 +1,9 @@
 ---
-layout: child_layout/blog_item
+layout: child_layout/latest_item
 title:
 title_override:
-permalink: /blog/blog-item/
-hero_image: /assets/img/content/backgrounds/bg-05.jpg
+permalink: /latest/latest-item/
+hero_image:
 hero_options: is-short is-minimal
 breadcrumbs: true
 breadcrumbs_text:

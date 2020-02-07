@@ -36,7 +36,12 @@ $hero-height-presets: (
         xs: auto,
         md: 100vh,
         lg: 100vh
-    )
+    ),
+    is-large: (
+        xs: auto,
+        md: rem-calc(810),
+        lg: rem-calc(810)
+    ),
 );
 
 //-----------------------------------------------------------------

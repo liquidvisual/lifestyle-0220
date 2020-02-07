@@ -105,12 +105,10 @@ $header-body-xxl-height: 304px !default; //324px !default;
 	background: $tertiary;
 	// opacity: 0.2;
 	will-change: transform;
-	// z-index: 9999;
 	z-index: 200;
 
 	@include media-breakpoint-up(md) {
-		// position: absolute;
-	    // background: white;
+		position: absolute;
 	}
 }
 
@@ -228,6 +226,7 @@ $header-body-xxl-height: 304px !default; //324px !default;
 
 .global-header .logo {
 	position: relative;
+	top: rem-calc(-6);
 	margin-right: auto;
 	// border: 1px solid red;
 
@@ -236,7 +235,7 @@ $header-body-xxl-height: 304px !default; //324px !default;
 	}
 
 	img {
-	    max-height: rem-calc(40);
+	    max-height: rem-calc(34);
 
 		@include media-breakpoint-up(md) {
 		    // max-height: rem-calc(100); // [LOCKED] - default size

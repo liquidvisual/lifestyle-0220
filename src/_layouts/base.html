@@ -33,19 +33,12 @@
         <!-- BODY -->
         <div class="global-body">
 
-            {% if page.permalink == "/" %}
-                {% include components/hero/hero.html
-                    data=page.hero_slides
-                    options=page.hero_options
-                %}
-            {% else %}
-                {% include components/hero/hero_static.html
-                    bg_image=page.hero_image
-                    options=page.hero_options
-                %}
-            {% endif %}
+            {% include components/hero/hero_static.html
+                bg_image=page.hero_image
+                options=page.hero_options
+            %}
 
-            {{ content }}
+            <!-- { { content }} -->
         </div>
 
         <!-- FOOTER -->

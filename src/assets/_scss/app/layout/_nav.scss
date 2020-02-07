@@ -85,6 +85,7 @@
     // text-transform: uppercase;
     line-height: 44px; // [LOCKED]
     color: #424242; // [THEMABLE]
+    word-break: keep-all; // fix firefox
 
     // this is a preference thing. Want arrows to denote dropdowns on top nav items?
     .submenu-arrow {
@@ -104,7 +105,6 @@
                 width: 1px;
                 height: 100%;
                 background: #424242;
-
             }
         }
     }
