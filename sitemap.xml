@@ -10,6 +10,9 @@
 <loc>/coffins/coffins-item/</loc>
 </url>
 <url>
+<loc>/coffins/coffins-item/coffins-item/</loc>
+</url>
+<url>
 <loc>/contact-us/</loc>
 </url>
 <url>
@@ -26,15 +29,6 @@
 </url>
 <url>
 <loc>/search/</loc>
-</url>
-<url>
-<loc>/services/traffic/</loc>
-</url>
-<url>
-<loc>/services/services-item/</loc>
-</url>
-<url>
-<loc>/services/services-item/services-item/</loc>
 </url>
 <url>
 <loc>/site-map/</loc>
