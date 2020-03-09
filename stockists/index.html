@@ -364,12 +364,21 @@
                     <div class="row justify-content-center">
                         <div class="col-md-11">
 
-                            <!-- GOOGLE MAP -->
-                            <section id="" class="lv-google-map" onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'" onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">
-                                <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-                                <iframe src="https://maps.google.com/maps?hl=en&q=&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed" width="100%" height="600" frameborder="0" style="pointer-events: none"></iframe>
-                            </section>
-                        </div>
+                            <!-- Start Stockist.co widget -->
+                            <div data-stockist-widget-tag="u3023">Loading store locator from
+                                <a href="http://stockist.co">Stockist store locator</a>...</div>
+                            <script>
+                            (function(s, t, o, c, k) {
+                                c = s.createElement(t);
+                                c.src = o;
+                                c.async = 1;
+                                k = s.getElementsByTagName(t)[0];
+                                k.parentNode.insertBefore(c, k);
+                            })(document, 'script', '//stockist.co/embed/v1/widget.min.js');
+                            </script>
+
+                            <!-- End Stockist.co widget -->
+                            </div>
                     </div>
                 </div>
             </section>
