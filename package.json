@@ -46,7 +46,7 @@
     "flickity": "^2.1.2",
     "font-awesome": "^4.7.0",
     "headroom.js": "^0.9.4",
-    "jquery": "~3.3.1",
+    "jquery": "~3.4.0",
     "jquery.scrollto": "^2.1.2",
     "lozad": "^1.14.0",
     "magnific-popup": "^1.1.0",
