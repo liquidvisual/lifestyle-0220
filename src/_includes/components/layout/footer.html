@@ -2,6 +2,63 @@
 {% assign logo = page.logo | default: "/assets/img/content/logo@2x.png" %}
 {% assign sitemap = site.data.sitemap %}
 
+<!-- COMPANIES CAROUSEL -->
+<section class="section section-companies">
+	<div class="container">
+
+		<!-- HEADING -->
+		<h3 class="text-primary text-center text-uppercase mb-0">
+			You Are in Good Company
+		</h3>
+
+		<!-- SLIDER -->
+		<div class="slider slider-companies" data-slider>
+			<div data-flickity='
+				{
+			        "adaptiveHeight": false,
+			        "autoPlay": false,
+			        "cellAlign": "left",
+			        "contain": true,
+			        "draggable": ">1",
+			        "dragThreshold": 40,
+			        "freeScroll": false,
+			        "freeScrollFriction": 0.075,
+			        "friction": 0.28,
+			        "groupCells": false,
+			        "imagesLoaded": true,
+			        "pageDots": false,
+			        "prevNextButtons": false,
+			        "pauseAutoPlayOnHover": false,
+			        "selectedAttraction": 0.025,
+			        "watchCSS": false,
+			        "wrapAround": true
+			    }'>
+
+				<!-- SLIDER CELLS -->
+				{% for i in (1..6) %}
+					<a class="slider-cell" href="#">
+						<img width="100%" src="/assets/img/content/companies/company-{{i}}.jpg" alt="Logo">
+					</a>
+				{% endfor %}
+
+				<!-- EXAMPLE -->
+				<a class="slider-cell" href="#">
+					<img width="100%" src="/assets/img/content/companies/company-2.jpg" alt="Logo">
+				</a>
+
+			</div>
+
+			<!-- SLIDER CONTROLS -->
+			<div class="slider-controls">
+			    <button class="slider-prev-btn"><i class="fa fa-angle-left"></i></button>
+			    <button class="slider-next-btn"><i class="fa fa-angle-right"></i></button>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+
 <!-- FOOTER BODY -->
 <section class="global-footer-body">
 	<div class="container">

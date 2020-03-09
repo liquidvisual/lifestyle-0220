@@ -1,0 +1,30 @@
+"Ash Boxes": {
+        "url": "/ash-boxes/",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Floral": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Places": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Sport": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Nature": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Flags": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Hobbies": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Animals": {
+                "url": "/coffins/coffins-item/",
+            },
+            "Custom": {
+                "url": "/coffins/coffins-item/",
+            }
+        }
+    },

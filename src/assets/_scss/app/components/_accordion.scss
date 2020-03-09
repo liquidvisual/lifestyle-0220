@@ -18,17 +18,22 @@
 		// margin-bottom: rem-calc(10);
 		box-shadow: none; // [LOCKED]
 		border-radius: $border-radius !important;
+		background: none !important;
 
 		.card-header {
 			padding: 0; // [LOCKED]
 			background: none; // [LOCKED]
+
+			.btn-link:not(.collapsed) .text {
+				color: $primary;
+			}
 
 			.btn {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				width: 100%;
-				padding: rem-calc(15 15);
+				padding: rem-calc(40 15);
 				background: white;
 				border-bottom: 2px solid #dddedf;
 				// font-weight: $font-weight-bold;
@@ -40,6 +45,8 @@
 				.text {
 					width: 100%;
 					font-size: rem-calc(20);
+					font-weight: $font-weight-lighter;
+					color: #6f716f;
 				}
 			}
 
@@ -47,11 +54,27 @@
 				font-size: rem-calc(34);
 				margin-left: auto;
 				padding-left: rem-calc(50);
+				opacity: 0.3;
+
+				@include media-breakpoint-up(md) {
+				    display: none;
+				}
 			}
 		}
 
 		.card-body {
 			padding-top: $spacer * 1.5;
+
+			@include media-breakpoint-down(sm) {
+			    padding-left: rem-calc(15);
+			    padding-right: rem-calc(15);
+			}
+
+			color: #6f716f;
+
+			p {
+				font-size: rem-calc(18);
+			}
 		}
 	}
 

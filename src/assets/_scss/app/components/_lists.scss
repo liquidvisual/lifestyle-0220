@@ -114,6 +114,57 @@
     }
 }
 
+//-----------------------------------------------------------------
+// LIST CATEGORY TOC (used in coffins)
+//-----------------------------------------------------------------
+
+.list-category-toc {
+    display: flex;
+    background-color: #efefef;
+    padding: rem-calc(20 0);
+    text-align: center;
+
+    @include media-breakpoint-up(xl) {
+        padding: rem-calc(55 0);
+    }
+
+    ul {
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    li {
+        position: relative;
+        float: left;
+    }
+
+    li:not(:last-child):after {
+        @include media-breakpoint-up(xl) {
+            content: "|";
+            position: absolute;
+            right: -4px;
+            margin-top: 4px;
+            color: #6f716f;
+        }
+    }
+
+    a {
+        padding: rem-calc(0 20);
+        font-weight: $font-weight-lighter;
+        color: #6f716f; // should be body-color
+
+        &:hover {
+            color: $primary;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: rem-calc(28);
+            padding: rem-calc(0 30);
+        }
+    }
+}
+
 //=========================================
 //
 //=========================================

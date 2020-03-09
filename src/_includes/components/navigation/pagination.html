@@ -1,3 +1,4 @@
+{% comment %}
 <!-- PAGINATION -->
 <nav class="mb-4">
 	<ul class="pagination">
@@ -17,4 +18,35 @@
 		<a class="page-link" href="#">Next</a>
 	</li>
 	</ul>
+</nav>
+{% endcomment %}
+
+<!-- PAGINATION -->
+<nav class="lv-pagination">
+	<div class="row align-items-center">
+		<div class="col-4">
+
+			<!-- BACK BTN -->
+			<a disabled class="float-left" href="#back">
+				<i class="fa fa-angle-left"></i>
+			</a>
+
+		</div>
+		<div class="col-4 text-center">
+
+			<!-- PAGE COUNT -->
+			<div class="text-uppercase mx-auto">
+				Page <span>1</span> of <span>2</span>
+			</div>
+
+		</div>
+		<div class="col-4">
+
+			<!-- NEXT BTN -->
+			<a class="float-right text-right" href="#next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+
+		</div>
+	</div>
 </nav>

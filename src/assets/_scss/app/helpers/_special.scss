@@ -135,3 +135,66 @@ a .link-button:after {
 	font-size: 1.1rem;
 	line-height: 1rem;
 }
+
+//-----------------------------------------------------------------
+// COFFIN ITEM FOOTER
+//-----------------------------------------------------------------
+
+.spec-item-footer {
+	.float-left,
+	.float-right {
+		font-size: rem-calc(20);
+		font-weight: $font-weight-lighter;
+		color: $body-color;
+
+		@include media-breakpoint-up(lg) {
+		    font-size: rem-calc(44);
+		}
+
+		&:hover {
+			color: $primary;
+		}
+	}
+
+	.back-btn {
+		font-size: rem-calc(27);
+		font-weight: $font-weight-light;
+		color: #959697;
+
+		img {
+			max-width: rem-calc(112);
+		}
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// STOCKIST WIDGET
+//-----------------------------------------------------------------
+
+.stockist-widget {
+	font-size: rem-calc(16);
+
+	@include media-breakpoint-up(md) {
+	    font-size: rem-calc(14);
+	}
+
+	@include media-breakpoint-up(xl) {
+	    font-size: rem-calc(13);
+	}
+
+	p, ul, ol, td {
+		font-size: rem-calc(16);
+
+		@include media-breakpoint-up(md) {
+		    font-size: rem-calc(14);
+		}
+
+		@include media-breakpoint-up(xl) {
+		    font-size: rem-calc(13);
+		}
+	}
+}

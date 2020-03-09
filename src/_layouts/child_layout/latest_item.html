@@ -7,7 +7,7 @@ layout: base__page_sidebar_9x3_wide
 {% assign item = blog_posts[0] %}
 
 <!-- TITLE -->
-<h1 class="h2 font-weight-bolder mb-3">
+<h1 class="h2 font-weight-bold mb-3">
     {{ item.title }}
 </h1>
 
@@ -16,7 +16,7 @@ layout: base__page_sidebar_9x3_wide
     <div class="col-md-6">
 
         <!-- DATE -->
-        <p class="h5 font-weight-normal text-uppercase text-muted">
+        <p class="h5 font-weight-normal text-uppercase text-muted mb-4">
             <i class="fa fa-calendar-o mr-1"></i>
             <time datetime="{{ item.date | date_to_xmlschema }}">
                 {{ item.date | date: "%d %B %Y" }}
@@ -31,32 +31,18 @@ layout: base__page_sidebar_9x3_wide
     <img style="max-width: 620px" src="{{ item.image }}" alt="...">
 </p>
 
-{% if page.lead %}
-    <!-- LEAD (OPTIONAL) -->
-    <p class="lead mb-4">
-        {{ page.lead }}
-    </p>
-{% endif %}
-
 <!-- WYSIWYG -->
 <div class="wysiwyg mb-5">
     {{ content }}
 </div>
-
-<!-- DOWNLOAD LINK -->
-<p class="mb-4 pb-2">
-    <a href="#" class="btn btn-download text-body">
-        <i class="fa fa-file-pdf-o mr-2"></i> Download as PDF
-    </a>
-</p>
 
 <!-- DIVIDER -->
 <hr class="mb-4 pb-1">
 
 <!-- PREV + NEXT -->
 <p class="mb-5 mb-lg-0">
-    <a class="float-left text-body font-weight-bolder" href="#prev"><i class="fa fa-angle-left"></i> Previous Blog Post</a>
-    <a class="float-right text-body font-weight-bolder" href="#next">Next Blog Post <i class="fa fa-angle-right"></i></a>
+    <a class="float-left text-body font-weight-bold" href="#prev"><i class="fa fa-angle-left"></i> Previous Article</a>
+    <a class="float-right text-body font-weight-bold" href="#next">Next Article <i class="fa fa-angle-right"></i></a>
 </p>
 
 {% contentfor sidebar %}
@@ -65,7 +51,7 @@ layout: base__page_sidebar_9x3_wide
     <section class="mb-5">
 
         <!-- HEADING -->
-        <h3 class="h5 mb-3">
+        <h3 class="h4 mb-3">
             More Recent posts:
         </h3>
 
@@ -78,20 +64,20 @@ layout: base__page_sidebar_9x3_wide
                     <div>
 
                         <!-- IMAGE -->
-                        <a class="btn-tile mb-3" href="/blog/blog-item/">
+                        <a class="btn-tile mb-3" href="/latest/latest-item/">
                             <img width="100%" src="/assets/img/layout/thumb-sizer--480x288.svg" alt="...">
                             <span class="btn-tile-bg" style="background-image: url('{{ item.image }}')"></span>
                         </a>
 
                         <!-- HEADING -->
-                        <a href="/blog/blog-item/">
-                            <h4 class="h5 text-body font-weight-bolder mb-1">
+                        <a href="/latest/latest-item/">
+                            <h4 class="h4 text-body font-weight-bolder mb-0">
                                 {{ item.title }} <i class="fa fa-angle-right"></i>
                             </h4>
                         </a>
 
                         <!-- DATE -->
-                        <small class="font-weight-normal text-uppercase text-muted">
+                        <small class="h6 font-weight-normal text-uppercase text-muted">
                             <time datetime="{{ item.date | date_to_xmlschema }}">
                                 {{ item.date | date: "%d %B %Y" }}
                             </time>
@@ -102,9 +88,6 @@ layout: base__page_sidebar_9x3_wide
             {% endfor %}
 
         </ul>
-
-        <!-- DIVIDER -->
-        <hr class="mb-4">
 
     </section>
 

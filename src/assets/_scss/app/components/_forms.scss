@@ -48,6 +48,42 @@ form[data-toggle="validator"] {
 // }
 
 //-----------------------------------------------------------------
+// BOOTSTRAP VALIDATION
+// http://1000hz.github.io/bootstrap-validator/#validator-events
+//-----------------------------------------------------------------
+
+form[data-toggle="validator"] .error {
+	display: none;
+	width: 100%;
+	padding: rem-calc(5 10);
+	background: $danger;
+	color: white;
+}
+
+form[data-toggle="validator"] .has-error .form-control-label {
+	color: $danger;
+}
+
+form[data-toggle="validator"] .has-error > .form-control {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-color: $danger;
+}
+
+form[data-toggle="validator"] .has-error > .error {
+	display: block;
+}
+
+// lazy
+form[data-toggle="validator"] .has-error > select.custom-select {
+	border-color: $danger !important;
+}
+
+form[data-toggle="validator"] .has-error > p {
+	color: $danger !important;
+}
+
+//-----------------------------------------------------------------
 // CAPTCHA BADGE
 //-----------------------------------------------------------------
 

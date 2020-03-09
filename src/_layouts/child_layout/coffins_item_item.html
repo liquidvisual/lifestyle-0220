@@ -1,0 +1,101 @@
+---
+layout: base__page
+---
+
+{% contentfor hero_caption %}
+    <!-- CAPTION TOP -->
+    <section class="section lv-hero-item-caption-top" style="overflow: visible;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-9 col-lg-7 col-xl-6">
+
+                    <!-- HEADER -->
+                    <h1 class="mt-4 mb-4">
+                    	<img width="100%" src="/assets/img/layout/header-360-degree.png" alt="See it in 360 Degrees">
+                    </h1>
+
+                    <!-- SCROLL PROMPT -->
+                    <a href="#the-lavender-coffin" class="lv-hero-scroll-prompt is-bottom is-dark hidden-lg-down"></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endcontentfor %}
+
+<!-- COFFINS DESIGN -->
+<section class="section">
+    <div class="container">
+
+        <!-- HEADING -->
+        <h2
+            id="the-lavender-coffin"
+            class="fancy-heading text-center text-uppercase mb-5"
+        >
+            <span class="font-weight-lighter">The</span>
+            <span class="font-weight-bolder">Lavender</span>
+            <span class="font-weight-lighter">Coffin</span>
+        </h2>
+
+        <div class="spacer mb-4"></div>
+
+        <!-- COFFIN ROTATION -->
+        <div class="row justify-content-center mb-5">
+        	<div class="col-md-11 px-xl-5">
+        		<p><img width="100%" src="/assets/img/content/coffins/coffin-item-1.jpg" alt="Placeholder"></p>
+        	</div>
+        </div>
+
+        <!-- WYSIWYG #1 -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-11">
+                <div class="wysiwyg text-center">
+                    {{ page.wysiwyg_1 | markdownify }}
+                </div>
+            </div>
+        </div>
+
+		<!-- COFFIN ZOOMED -->
+		<div class="row justify-content-center mb-5">
+			<div class="col-md-11 px-xl-5">
+				<p><img width="100%" src="/assets/img/content/coffins/coffin-item-2.jpg" alt="Placeholder"></p>
+			</div>
+		</div>
+
+		<!-- ITEM FOOTER -->
+		<div class="spec-item-footer py-xl-4">
+			<div class="row justify-content-center">
+				<div class="col-md-11 px-xl-5">
+					<div class="row align-items-center">
+						<div class="col-5">
+
+							<!-- CONTACT BTN -->
+							<a class="float-left text-uppercase" href="/contact-us/">
+								Contact Us
+							</a>
+
+						</div>
+						<div class="col-2 text-center">
+
+							<!-- PAGE COUNT -->
+							<a class="back-btn text-uppercase" href="/coffins/coffins-item/">
+								<p><img width="100%" src="/assets/img/ui/back-symbol.png" alt="Back"></p>
+								<div class="hidden-sm-down text-uppercase">Go Back</div>
+							</a>
+
+						</div>
+						<div class="col-5">
+
+							<!-- ORDER BTN -->
+							<a class="float-right text-uppercase text-right" href="/order/">
+								Order
+							</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </div>
+</section>

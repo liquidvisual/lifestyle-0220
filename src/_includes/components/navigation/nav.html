@@ -95,10 +95,11 @@
 
     {% if forloop.index == null %}
 
+        {% comment %}
         <!-- CONTACT -->
         <li class="is-off-canvas-only pt-3">
 
-            {% comment %}
+
             <!-- PHONE -->
             <a href="tel:{{ qld_office.phone }}">
                 <i class="fa fa-phone"></i>&nbsp;
@@ -110,18 +111,17 @@
                 <i class="fa fa-envelope"></i>&nbsp;
                 <span>{{ qld_office.email }}</span>
             </a>
-            {% endcomment %}
-
         </li>
+        {% endcomment %}
 
-    {% endif %}
-
-    {% comment %}
         <!-- SOCIAL MEDIA -->
         <li class="is-off-canvas-only">
             {% include components/widgets/social_media.html preset=3 %}
         </li>
 
+    {% endif %}
+
+    {% comment %}
         <!-- SEARCH (OPTIONAL) -->
         <li class="is-off-canvas-only">
             {% include components/forms/form_search.html %}

@@ -1,0 +1,379 @@
+---
+layout: base__page
+---
+
+<!-- ORDER -->
+<section class="section">
+	<div class="container">
+
+		<!-- WYSIWYG #1 -->
+		<div class="row justify-content-center">
+			<div class="col-md-11">
+				<div class="wysiwyg text-center">
+					{{ page.wysiwyg_1 | markdownify }}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="section is-quaternary">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-11 col-lg-9">
+
+				<!-- IF SUCCESS (HIDDEN) -->
+				<div class="alert alert-success alert-dismissible fade show mb-4" role="alert" hidden>
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				        <span aria-hidden="true">&times;</span>
+				    </button>
+				    <strong>Success!</strong><br> Thanks for that. Your message has been received.
+				</div>
+
+				<!-- IF FAILURE (HIDDEN) -->
+				<div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" hidden>
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				        <span aria-hidden="true">&times;</span>
+				    </button>
+				    <strong>Oops!</strong><br> Something went wrong. Please try again.
+				</div>
+
+				<!-- FORM ORDER -->
+				<form
+					id="form-order"
+					class="form-order"
+					name="Order Form"
+					action="/"
+					data-toggle="validator"
+					novalidate
+				>
+				    <fieldset class="mb-5">
+
+						<!-- CONTACT DETAILS (HEADING) -->
+				    	<h3 class="mb-0">
+				    		Contact Details
+				    	</h3>
+
+						<!-- DIVIDER -->
+				    	<hr class="mb-5">
+
+			    		<div class="row mb-4">
+			    			<div class="col-md-4">
+
+								<!-- NAME* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Name <small class="asterisk">*</small></p>
+								    <input class="form-control" name="Name" type="text" placeholder="" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+								</label>
+
+			    			</div>
+			    			<div class="col-md-4">
+
+			    				<!-- EMAIL* -->
+			    				<label class="form-group d-block">
+			    				    <p class="mb-2">Email <small class="asterisk">*</small></p>
+			    				    <input class="form-control" name="Email" type="email" placeholder="" required>
+			    				    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+			    				</label>
+
+			    			</div>
+			    			<div class="col-md-4">
+
+								<!-- PHONE* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Phone <small class="asterisk">*</small></p>
+								    <input class="form-control" name="Phone" type="text" placeholder="" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A phone number is required.</small>
+								</label>
+
+			    			</div>
+			    		</div>
+
+		    			<div class="row mb-4">
+		    				<div class="col-md-4">
+
+		    					<!-- FUNERAL HOME* -->
+		    					<label class="form-group d-block">
+		    					    <p class="mb-2">Funeral Home <small class="asterisk">*</small></p>
+		    					    <input class="form-control" name="Funeral Home" type="text" placeholder="" required>
+		    					    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; The funeral home is required.</small>
+		    					</label>
+
+		    				</div>
+		    				<div class="col-md-4">
+
+		    					<!-- ORDER NUMBER* -->
+		    					<label class="form-group d-block">
+		    					    <p class="mb-2">Order Number <small class="asterisk">*</small></p>
+		    					    <input class="form-control" name="Order Number" type="text" placeholder="" required>
+		    					    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; The order number is required.</small>
+		    					</label>
+
+		    				</div>
+		    				<div class="col-md-4">
+
+								<!-- DATE REQUIRED -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Date Required <small class="asterisk">*</small></p>
+								    <input class="form-control datepicker" name="Date Required" type="text" placeholder="Click to choose" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please choose a date.</small>
+								</label>
+
+		    				</div>
+		    			</div>
+
+				    </fieldset>
+
+		    	    <fieldset class="mb-5">
+
+						<!-- ORDER SPECS (HEADING) -->
+				    	<h3 class="mb-0">
+				    		Order Details
+				    	</h3>
+
+						<!-- DIVIDER -->
+				    	<hr class="mb-5">
+
+		        		<div class="row mb-4">
+		        			<div class="col-md-6">
+
+		    					<!-- COFFIN SIZE* -->
+		    					<label class="form-group d-block">
+		    					    <p class="mb-2">Coffin Size <small class="asterisk">*</small></p>
+		    					    <select class="custom-select" name="Coffin Size" required>
+		    					        <option disabled selected value="">Choose one</option>
+		    					        <option value="Option #1">Option #1</option>
+		    					        <option value="Option #2">Option #2</option>
+		    					        <option value="Option #3">Option #3</option>
+		    					    </select>
+		    					    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please make a selection.</small>
+		    					</label>
+		    					<small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A phone number is required.</small>
+
+		        			</div>
+			    			<div class="col-md-6">
+
+								<!-- HANDLES* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Handles <small class="asterisk">*</small></p>
+								    <select class="custom-select" name="Handles" required>
+								        <option disabled selected value="">Choose one</option>
+								        <option value="Option #1">Option #1</option>
+								        <option value="Option #2">Option #2</option>
+								        <option value="Option #3">Option #3</option>
+								    </select>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please make a selection.</small>
+								</label>
+
+			    			</div>
+		        		</div>
+
+	    				<div class="row mb-4">
+	    					<div class="col-md-6">
+
+								<!-- DESIGN (HEADING) -->
+	    						<p class="mb-3">Design</p>
+
+		    	    			<!-- LIFESTYLE THEME (RADIO) -->
+			    			    <label class="custom-control custom-radio">
+			    			        <input
+			    			        	class="custom-control-input"
+			    			        	name="Design"
+			    			        	type="radio"
+			    			        	value="Lifestyle Theme"
+			    			        	checked
+			    			        	onclick="showLifestyleTheme()"
+			    			        >
+			    			        <p class="custom-control-label h5">
+			    			        	<span style="position: relative; top: 3px; left: 10px;">Lifestyle Theme</span>
+			    			        </p>
+			    			    </label>
+
+								<!-- PERSONALISED CUSTOM DESIGN (RADIO) -->
+			    			    <label class="custom-control custom-radio">
+			    			        <input
+			    			        	class="custom-control-input"
+			    			        	name="Design"
+			    			        	type="radio"
+			    			        	value="Personalised Custom Design"
+			    			        	onclick="showPersonalisedCustomDesign()"
+			    			        >
+			    			        <p class="custom-control-label h5">
+			    			        	<span style="position: relative; top: 3px; left: 10px;">Personalised Custom Design</span>
+			    			        </p>
+			    			    </label>
+
+								<!-- PLAIN COLOUR (RADIO) -->
+			    			    <label class="custom-control custom-radio">
+			    			        <input
+			    			        	class="custom-control-input"
+			    			        	type="radio"
+			    			        	name="Design"
+			    			        	value="Plain Colour"
+			    			        	onclick="showPlainColour()"
+			    			        >
+			    			        <p class="custom-control-label h5">
+			    			        	<span style="position: relative; top: 3px; left: 10px;">Plain Colour</span>
+			    			        </p>
+			    			    </label>
+
+	    					</div>
+	    					<div id="lifestyle-theme" class="col-md-6">
+
+								<!-- LIFESTYLE THEME* (SELECT) -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Lifestyle Theme <small class="asterisk">*</small></p>
+								    <select
+								    	id="lifestyle-theme-select"
+								    	class="custom-select"
+								    	name="Lifestyle Theme"
+								    	required
+								    >
+								        <option disabled selected value="">Choose one</option>
+	                                    <option value="Option #1">Option #1</option>
+	                                    <option value="Option #2">Option #2</option>
+	                                    <option value="Option #3">Option #3</option>
+								    </select>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please make a selection.</small>
+								</label>
+
+	    					</div>
+	    				</div>
+
+						<div class="row">
+							<div id="design-brief" class="col-md-6" hidden>
+
+								<!-- DESIGN BRIEF -->
+								<label class="form-group d-block mb-4">
+								    <p class="mb-3">Design Brief</p>
+								    <textarea class="form-control" name="Design Brief" rows="6" placeholder=""></textarea>
+								</label>
+
+							</div>
+							<div id="upload-file" class="col-md-6" hidden>
+
+								<p class="mb-3">Upload File</p>
+
+								<!-- FILE -->
+								<label class="form-group d-block mb-4">
+									<input type="file" name="avatar" accept="image/*,.pdf">
+								</label>
+
+							</div>
+						</div>
+
+		        	</fieldset>
+	    		    <fieldset class="mb-4">
+
+						<!-- DELIVERY INFORMATION (HEADING) -->
+	    		    	<h3 class="mb-0">
+	    		    		Delivery Information
+	    		    	</h3>
+
+						<!-- DIVIDER -->
+	    		    	<hr class="mb-5">
+
+	    	    		<div class="row mb-4">
+	    	    			<div class="col-md-3">
+
+	    						<!-- DELIVERY ADDRESS* -->
+	    						<label class="form-group d-block">
+	    						    <p class="mb-2">Address <small class="asterisk">*</small></p>
+	    						    <input class="form-control" name="Delivery Address" type="text" placeholder="" required>
+	    						    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your address is required.</small>
+	    						</label>
+
+	    	    			</div>
+			    			<div class="col-md-3">
+
+								<!-- CITY* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">City <small class="asterisk">*</small></p>
+								    <input class="form-control" name="Delivery City" type="text" placeholder="" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your city is required.</small>
+								</label>
+
+			    			</div>
+			    			<div class="col-md-3">
+
+								<!-- STATE* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">State <small class="asterisk">*</small></p>
+								    <input class="form-control" name="Delivery State" type="text" placeholder="" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your state is required.</small>
+								</label>
+
+			    			</div>
+			    			<div class="col-md-3">
+
+								<!-- POSTCODE* -->
+								<label class="form-group d-block">
+								    <p class="mb-2">Postcode <small class="asterisk">*</small></p>
+								    <input class="form-control" name="Delivery Postcode" type="text" placeholder="" required>
+								    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your postcode is required.</small>
+								</label>
+
+			    			</div>
+	    	    		</div>
+
+		    			<!-- SPECIAL COMMENTS -->
+		    			<label class="form-group d-block mb-4">
+		    			    <p class="mb-3">Special Comments</p>
+		    			    <textarea class="form-control" name="Special Comments" rows="6" placeholder=""></textarea>
+		    			</label>
+
+		    			<!-- I ALSO REQUIRE A CREMATION ASH BOX (CHECKBOX) -->
+	    			    <label class="custom-control custom-checkbox">
+	    			        <input class="custom-control-input" type="checkbox" name="Require Cremation Ash Box">
+	    			        <p class="custom-control-label">
+	    			        	<span style="position: relative; top: -10px; left: 10px;">I also require a Cremation Ash Box</span>
+	    			        </p>
+	    			    </label>
+
+	    	    	</fieldset>
+
+				    <!-- * REQUIRED -->
+				    <p class="float-right">
+				        <small class="asterisk">*</small>
+				        <small class="text-muted" style="position: relative; top: -5px;">required</small>
+				    </p>
+
+				    <!-- SUBMIT -->
+				    <button type="submit" class="btn btn-primary">
+				        Submit
+				    </button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+
+	// Toggle conditional form fields.
+	function showLifestyleTheme(){
+		document.getElementById('lifestyle-theme').removeAttribute('hidden');
+		document.getElementById('design-brief').setAttribute('hidden', true);
+		document.getElementById('upload-file').setAttribute('hidden', true);
+		$('#lifestyle-theme-select').attr('data-validate', true);
+		$('form[data-toggle="validator"]').validator('update');
+	}
+	function showPersonalisedCustomDesign(){
+		document.getElementById('lifestyle-theme').setAttribute('hidden', true);
+		document.getElementById('design-brief').removeAttribute('hidden');
+		document.getElementById('upload-file').removeAttribute('hidden');
+		$('#lifestyle-theme-select').attr('data-validate', false);
+		$('form[data-toggle="validator"]').validator('update');
+	}
+	function showPlainColour() {
+		document.getElementById('lifestyle-theme').setAttribute('hidden', true);
+		document.getElementById('design-brief').removeAttribute('hidden');
+		document.getElementById('upload-file').setAttribute('hidden', true);
+		$('#lifestyle-theme-select').attr('data-validate', false);
+		$('form[data-toggle="validator"]').validator('update');
+	}
+</script>

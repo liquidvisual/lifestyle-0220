@@ -2,39 +2,67 @@
 layout: base__page
 ---
 
-<!-- LEAD -->
-<p class="lead mb-4">
-	{{ page.lead }}
-</p>
+{% contentfor hero_caption %}
+	<!-- CAPTION TOP -->
+	<section class="section lv-hero-item-caption-top hidden-sm-down" style="overflow: visible;">
+	    <div class="container">
+	        <div class="row justify-content-center text-center">
+	            <div class="col-md-12 col-xl-9">
 
-<!-- WYSIWYG -->
-<div class="wysiwyg mb-4">
-	{{ content }}
-</div>
+	                <!-- HEADER -->
+	                <h1 class="display-1 text-white text-uppercase mt-4 mb-4">
+	                    Floral Coffins
+	                </h1>
 
-<!-- LINKS TEMPLATE (OPTIONAL) -->
-<div>
-	<p class="mb-1">
-		<a class="btn btn-block side-btn text-left" href="#">
-			<i class="fa fa-file-pdf-o icon mr-2"></i>
-			<span class="text">
-				<strong>Download link example</strong>
-			</span>
-			<i class="ml-auto fa fa-angle-right"></i>
-		</a>
-	</p>
-	<p class="mb-1">
-		<a class="btn btn-block side-btn text-left" href="#">
-			<i class="fa fa-file-pdf-o icon mr-2"></i>
-			<span class="text">
-				<strong>Download link example</strong>
-			</span>
-			<i class="ml-auto fa fa-angle-right"></i>
-		</a>
-	</p>
-</div>
+	                <!-- SCROLL PROMPT -->
+	                <a href="#floral-coffin-designs" class="lv-hero-scroll-prompt is-bottom is-bottom-more hidden-lg-down"></a>
 
-{% contentfor content_additional %}
-	{% include sections/section_cta.html %}
-	{% include sections/section_blog_latest.html title="Blogs - Criminal Defence" %}
+	            </div>
+	        </div>
+	    </div>
+	</section>
 {% endcontentfor %}
+
+<!-- COFFINS DESIGN -->
+<section class="section pb-0">
+    <div class="container">
+
+        <!-- HEADING -->
+        <h2 id="floral-coffin-designs" class="fancy-heading text-center text-uppercase mb-5">
+            <span class="font-weight-bolder">Floral</span> <span class="font-weight-lighter">Coffin Designs</span>
+        </h2>
+
+        <!-- WYSIWYG #1 -->
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="wysiwyg text-center">
+                    {{ page.wysiwyg_1 | markdownify }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- COFFIN DESIGNS -->
+<section class="section">
+	<div class="container">
+
+		{% assign data = page.coffin_designs %}
+
+		<!-- MEDIA LIGHTBOX GALLERY -->
+		<div class="gallery mb-4">
+			<ul class="block-grid-xs-1 block-grid-md-2">
+				{% for item in data %}
+					<li id="{{ item.title | slugify }}">
+						<a class="btn-tile" href="{{ item.url }}" title="{{ item.title }}">
+							<img width="100%" src="/assets/img/layout/thumb-sizer--1024-576.svg" alt="{{ item.title }}">
+							<span class="lozad btn-tile-bg" data-background-image="{{ item.image }}"></span>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+</section>

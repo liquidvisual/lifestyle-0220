@@ -86,7 +86,7 @@ p.lead {
 
 @include media-breakpoint-down(sm) {
     h1, .h1 { font-size: calc(#{$h1-font-size} - 64%); }
-    h2, .h2 { font-size: calc(#{$h2-font-size} - 40%); }
+    h2, .h2 { font-size: calc(#{$h2-font-size} - 240%); }
     h3, .h3 { font-size: calc(#{$h3-font-size} - 20%); }
     h4, .h4 { font-size: calc(#{$h4-font-size} - 24%); }
     h5, .h5 { font-size: calc(#{$h5-font-size} - 15%); }
@@ -95,7 +95,7 @@ p.lead {
 
 @include media-breakpoint-down(sm) {
     // .display-1 { font-size: $h1-font-size; }
-    .display-1 { font-size: calc(#{$display1-size} - 80%); }
+    .display-1 { font-size: calc(#{$display1-size} - 180%); }
     // .display-2 { font-size: calc(#{$display2-size} - 100%) !important; }
     .display-3 { font-size: calc(#{$display3-size} - 30%) !important; }
     // .display-4 { font-size: calc(#{$display4-size} - 100%) !important; }

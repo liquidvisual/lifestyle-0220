@@ -77,7 +77,8 @@
 	}
 
 	.slider-cell {
-		width: 33.333%;
+		// width: 33.333%;
+		width: 50%;
 
 		@include media-breakpoint-up(md) {
 		    width: 16.666%;
@@ -108,7 +109,7 @@
 		    align-items: flex-end;
 		    left: auto;
 		    right: 0;
-		    top: rem-calc(50);
+		    top: rem-calc(40);
 		    width: 20%;
 		}
 	}

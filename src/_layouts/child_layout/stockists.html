@@ -2,23 +2,43 @@
 layout: base__page
 ---
 
-<!-- STOCKISTS -->
+<!-- STOCKIST LOCATOR -->
 <section class="section">
-	<div class="container">
+    <div class="container">
 
-		<!-- WYSIWYG #1 -->
-		<div class="row justify-content-center">
-			<div class="col-md-11">
-				<div class="wysiwyg text-center">
-					<p>Nulla sed mi leo, sit amet molestie nulla. Phasellus lobortis blandit ipsum, at adipiscing eros porta quis. Phasellus in nisi ipsum,
-					quis dapibus magna. Phasellus odio dolor, pretium sit amet aliquam a, gravida eget dui. Pellentesque eu ipsum et quam
-					faucibus scelerisque vitae ut ligula. Ut luctus fermentum commodo. Mauris eget justo turpis, eget fringilla mi. Duis lobortis
-					ursus mi vel tristique. Maecenas eu lorem hendrerit neque dapibus cursus id sit amet nisi. Proin rhoncus semper sem</p>
-				</div>
-			</div>
-		</div>
+        <!-- HEADING -->
+        <h2 class="fancy-heading text-center text-uppercase mb-5">
+            <span class="font-weight-bolder">Stockist</span> <span class="font-weight-lighter">Locator</span>
+        </h2>
 
-	</div>
+        <!-- WYSIWYG #2 -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-11">
+                <div class="wysiwyg text-center">
+                    {{ page.wysiwyg_2 | markdownify }}
+                </div>
+            </div>
+        </div>
+
+        <!-- MAP WIDGET HERE -->
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+
+                <!-- Start Stockist.co widget -->
+                <div data-stockist-widget-tag="u3023">
+                    Loading store locator from <a href="http://stockist.co">Stockist store locator</a>...
+                </div>
+                <script>
+                    (function(s,t,o,c,k){c=s.createElement(t);c.src=o;c.async=1;
+                    k=s.getElementsByTagName(t)[0];k.parentNode.insertBefore(c,k);
+                    })(document,'script','//stockist.co/embed/v1/widget.min.js');
+                </script>
+                <!-- End Stockist.co widget -->
+
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <!-- CTA SECTION -->

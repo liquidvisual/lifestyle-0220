@@ -107,6 +107,9 @@ $header-body-xxl-height: 304px !default; //324px !default;
 	will-change: transform;
 	z-index: 200;
 
+	// opacity: 0.2;
+	// border-bottom: 2px dashed black;
+
 	@include media-breakpoint-up(md) {
 		position: absolute;
 	}

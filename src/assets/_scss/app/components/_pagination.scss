@@ -1,0 +1,41 @@
+/*
+    PAGINATION.CSS
+
+    - Last updated: 14.02.20
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// PAGINATION
+//-----------------------------------------------------------------
+
+.lv-pagination {
+    @include media-breakpoint-up(md) {
+        padding: rem-calc(20 0);
+    }
+
+    a {
+        width: rem-calc(44);
+        font-size: rem-calc(60);
+        color: $body-color;
+    }
+
+    a:not([disabled]):hover {
+        color: $primary;
+    }
+
+    [disabled] .fa {
+        opacity: 0.2;
+    }
+
+    .text-uppercase {
+        font-size: rem-calc(15);
+        color: #a4a4a4;
+    }
+}
+
+//=========================================
+//
+//=========================================

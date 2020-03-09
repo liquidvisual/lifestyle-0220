@@ -13,14 +13,31 @@ $(function () {
     // Tooltips
     // $('[data-toggle="tooltip"]').tooltip();
 
-    // Flatpickr
-    // $('.datepicker').flatpickr({
-    //         format: "Y-m-d", // 2018-12-18
-    //         altFormat: "d M Y", // 06 Dec 2018 etc
-    //         altInput: true
-    //     }
-    // );
+    // Flatpickr - NEW 2019
+    $('.datepicker, .ui-datepicker').flatpickr({
+            format: "d-m-Y", // 2018-12-18
+            altFormat: "d-m-Y", // 06 Dec 2018 etc
+            altInput: true,
+            allowInput: true
+        }
+    );
+
+    // https://github.com/flatpickr/flatpickr/issues/892
+    const datePickers = document.querySelectorAll('.datepicker, .ui-datepicker');
+
+    datePickers.forEach(function(target) {
+        target.onkeypress = function() {
+            return false;
+        }
+    });
+
 });
+
+const observer = lozad('.lozad', {
+    rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+    threshold: 0.1 // ratio of element convergence
+});
+observer.observe();
 
 //-----------------------------------------------------------------
 // EQUAL HEIGHT

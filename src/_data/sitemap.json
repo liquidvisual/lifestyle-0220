@@ -7,66 +7,43 @@
         "children_excluded_from_nav": false,
         "children": {
             "Floral": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Places": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Sport": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Nature": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Flags": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Hobbies": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Animals": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             },
             "Custom": {
-                "url": "/coffins/coffins-categories/",
+                "url": "/coffins/coffins-item/",
             }
         }
     },
-    "Ash Boxes": {
-        "url": "/ash-boxes/",
-        "children_excluded_from_nav": false,
-        "children": {
-            "Floral": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Places": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Sport": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Nature": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Flags": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Hobbies": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Animals": {
-                "url": "/coffins/coffins-categories/",
-            },
-            "Custom": {
-                "url": "/coffins/coffins-categories/",
-            }
-        }
-    },
+
     "FAQ": {
         "url": "/faq/",
     },
     "The Latest": {
         "url": "/latest/",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Latest Item": {
+                "url": "/latest/latest-item/",
+            }
+        }
     },
     "Stockists": {
         "url": "/stockists/",

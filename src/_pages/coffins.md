@@ -1,16 +1,55 @@
 ---
 layout: child_layout/coffins
-title: Coffins
+title: Coffin Designs
 permalink: /coffins/
-subpage_path:
-  - 'Services'
 
-hero_options:
-hero_image: /assets/img/content/backgrounds/placeholder-02.jpg
-lead: |
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+hero_options: has-video align-items-start
+#hero_image: /assets/img/content/backgrounds/placeholder-02.jpg
+hero_video: video-1
+hero_video_fallback: video-1
+hero_scroll_prompt: true
+
+wysiwyg_1: |
+  Nulla sed mi leo, sit amet molestie nulla. Phasellus lobortis blandit ipsum, at adipiscing eros porta quis. Phasellus in nisi ipsum, quis dapibus magna. Phasellus odio dolor, pretium sit amet aliquam a, gravida eget dui. Pellentesque eu ipsum et quam faucibus scelerisque vitae ut ligula. Ut luctus fermentum commodo. Mauris eget justo turpis, eget fringilla mi. Duis lobortis ursus mi vel tristique. Maecenas eu lorem hendrerit neque dapibus cursus id sit amet nisi.
+
+design_categories:
+  - title: Floral Designs
+    category: Floral
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/floral-designs.jpg
+
+  - title: Places Designs
+    category: Places
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/places-designs.jpg
+
+  - title: Sport Designs
+    category: Sport
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/sport-designs.jpg
+
+  - title: Nature Designs
+    category: Nature
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/placeholder-952x654.svg
+
+  - title: Flags Designs
+    category: Flags
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/placeholder-952x654.svg
+
+  - title: Hobbies Designs
+    category: Hobbies
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/placeholder-952x654.svg
+
+  - title: Animals Designs
+    category: Animals
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/placeholder-952x654.svg
+
+  - title: Custom Designs
+    category: Custom
+    url: /coffins/coffins-item/
+    image: /assets/img/content/coffin-designs/custom-designs.jpg
 ---
-
-Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.

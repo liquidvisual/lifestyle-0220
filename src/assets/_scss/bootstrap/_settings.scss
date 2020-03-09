@@ -71,7 +71,7 @@
 // );
 
 $primary:       #117bc6 !default;
-$secondary:     #ff5900 !default;
+$secondary:     #ff7101 !default;
 $tertiary:      #f4fbfe !default;
 $quaternary:    #f5f4f2 !default;
 // $success:       $green !default;
@@ -165,7 +165,7 @@ $spacer: rem-calc(20); //1rem !default;
 // // Settings for the `<body>` element.
 
 // $body-bg:                   $white !default;
-$body-color:                $yiq-text-dark; //#323332; //#151515; //#393a3a; //$gray-900 !default;
+$body-color:                #4f4f4f; //$yiq-text-dark; //#323332; //#151515; //#393a3a; //$gray-900 !default;
 
 
 // // Links
@@ -329,12 +329,12 @@ $h6-font-size:                rem-calc(15); //$font-size-base !default;
 // $headings-line-height:        1.2 !default;
 $headings-color:              #424242; //inherit !default;
 
-$display1-size:               rem-calc(50); //rem-calc(48); //6rem !default;
+$display1-size:               rem-calc(65); //rem-calc(48); //6rem !default;
 $display2-size:               rem-calc(34); //5.5rem !default;
 $display3-size:               rem-calc(29); //4.5rem !default;
 $display4-size:               rem-calc(18); //3.5rem !default;
 
-$display1-weight:             $font-weight-normal; //300 !default;
+$display1-weight:             $font-weight-bold; //300 !default;
 // $display2-weight:             300 !default;
 $display3-weight:             $font-weight-normal; //300 !default;
 // $display4-weight:             300 !default;

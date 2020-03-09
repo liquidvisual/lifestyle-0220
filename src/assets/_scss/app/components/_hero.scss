@@ -42,6 +42,12 @@ $hero-height-presets: (
         md: rem-calc(810),
         lg: rem-calc(810)
     ),
+    has-video: (
+        xs: 100%,
+        md: 720px,
+        lg: 900px,
+        xl: 1080px
+    ),
 );
 
 //-----------------------------------------------------------------
@@ -69,7 +75,8 @@ $hero-height-presets: (
     position: relative; // [LOCKED]
 
     .lv-hero {
-        // overflow: hidden; // [LOCKED] - hides slides when no JS
+        overflow: hidden; // [LOCKED] - hides slides when no JS
+        // background-color: #e1e1e1;
     }
 }
 
@@ -89,7 +96,7 @@ $hero-height-presets: (
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    // overflow: hidden; // [LOCKED] - stop video spilling out
+    overflow: hidden; // [LOCKED] - stop video spilling out
     z-index: 1; // [LOCKED] - video will be -1
 
     @include media-breakpoint-up(md) {
@@ -113,8 +120,8 @@ $hero-height-presets: (
         left: 0;
         width: 100%;
         height: 100%;
-        // background: rgba(black, 0.26);
-        background: linear-gradient(to bottom, rgba(black, 1) 18%, rgba(black, 0) 80%); // PSD
+        background: rgba(black, 0.5);
+        // background: linear-gradient(to bottom, rgba(black, 1) 18%, rgba(black, 0) 80%); // PSD
         opacity: 0.42; // PSD
         z-index: 1;
     }
@@ -128,7 +135,7 @@ $hero-height-presets: (
     // height: 100%; // undo options placed on auto-height - this is slim banner
     // min-height: 0;
     // padding: rem-calc(0 0 45 0);
-    padding: rem-calc(230 0 0 0);
+    // padding: rem-calc(230 0 0 0);
 }
 
 //----------------------------------------------------------------- *****
@@ -146,71 +153,19 @@ $hero-height-presets: (
     // word-break: break-word;
     // hyphens: auto;
     // -webkit-hyphens: auto;
-
-
-
-    .lv-hero-item-caption-bottom {
-        background: rgba(white, 0.64);
-
-        .wysiwyg,
-        .wysiwyg p {
-            font-size: rem-calc(20);
-        }
-    }
 }
 
-//----------------------------------------------------------------- *****
-// HERO CAPTION - DEFAULT (CAROUSEL)
-//----------------------------------------------------------------- *****
+.lv-hero-item-caption {
 
-.is-short .lv-hero-item-caption {
-    background: rgba(#232c2e, 0.64);
-    width: 100%;
-    padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
-    // padding-top: 30%;
-
-    @include media-breakpoint-up(md) {
-        padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
-    }
-}
-
-.is-minimal .lv-hero-item-caption {
-    padding: rem-calc(54 0 30 0); // PSD - magic numbers - accomodate Josefin
-
-    @include media-breakpoint-up(md) {
-        padding: rem-calc(16 0 25 0); // PSD - magic numbers - accomodate Josefin
-    }
-}
-
-.is-home .lv-hero-item-caption {
-    // padding-top: 40%;
-
-    @include media-breakpoint-up(lg) {
-        // padding: rem-calc(600 0 0 0);
+    .subheader {
+        font-size: rem-calc(34);
     }
 
-    // padding: rem-calc(20);
-    // background: rgba($primary, 0.82);
-
-    // @include media-breakpoint-down(sm) {
-    //     left: -20px;
-    //     width: calc(100% + 40px);
-    //     padding: rem-calc(20 15);
-    //     margin-top: 100px;
-    //     margin-bottom: rem-calc(-50);
-    // }
-
-    // @include media-breakpoint-up(md) {
-    //     // padding: rem-calc(35 130 35 56);
-    // }
-
-    // @include media-breakpoint-up(xl) {
-    //     max-width: rem-calc(680); // [LOCKED] - psd
-    // }
-}
-
-.is-home .lv-hero-item-caption-bottom {
-    padding: rem-calc(85 0 26 0);
+    .btn-large {
+        font-size: rem-calc(40);
+        padding-left: rem-calc(50);
+        padding-right: rem-calc(50);
+    }
 }
 
 //-----------------------------------------------------------------
@@ -383,23 +338,41 @@ $hero-height-presets: (
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: calc(50% - 20px);
-    bottom: rem-calc(100);
-    width: rem-calc(40);
-    height: rem-calc(40);
+    width: rem-calc(100);
+    height: rem-calc(100);
     border-radius: 100%;
-    background: rgba(white, 0.3);
-    font-size: rem-calc(30);
+    border: 2px solid white;
+    font-size: rem-calc(80);
     text-align: center;
     color: black;
+    background-image: url('/assets/img/layout/lifestyle-angle-down.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
     transition: background-color ease 300ms;
     animation: pulsate 0.8s ease-out 0.3s alternate infinite;
     z-index: 1;
 
+    &.is-bottom {
+        position: relative;
+        top: rem-calc(160);
+    }
+
+    &.is-bottom-more {
+        top: rem-calc(335);
+    }
+
+    &.is-dark {
+        border-color: #373435;
+        background-image: url('/assets/img/layout/lifestyle-angle-down--dark.svg');
+
+        &:hover {
+            background-color: rgba(#373435, 0.25);
+        }
+    }
+
     &:hover {
         color: black;
-        background: rgba(white, 0.25);
+        background-color: rgba(white, 0.25);
     }
 
     @keyframes pulsate {
@@ -416,56 +389,80 @@ $hero-height-presets: (
 .lv-hero .video-bg {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    // background-color: #17111c;
+    width: 100%;
+    height: 100%;
+    // background-color: white;
+    // border: 2px dashed red;
     // z-index: -99;
+    overflow: hidden; // *new*
 }
 
 .lv-hero .video-fg,
 .lv-hero .video-bg iframe,
 .lv-hero .video-bg video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    // top: 0;
+    // left: calc(50vw - 1920px/2);
+    // width: 1920px;
+    // height: 1080px;
     pointer-events: none;
-}
-
-// HTML5 VIDEO
-.lv-hero .video-bg video {
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-44%);
-
-    @include media-breakpoint-up(sm) {
-        transform: translateX(-50%) translateY(-40%);
-    }
+    border: 1px dashed transparent; // IE EDGE HACK
 
     @include media-breakpoint-up(md) {
-        transform: translateX(-50%) translateY(-36%);
+        top: 0;
+        left: 30%;
+        width: calc(1920px/1.5);
+        height: calc(1080px/1.5);
+    }
+
+    @include media-breakpoint-up(lg) {
+        top: 33.666%;
+        left: calc(50vw - (1920px/1.2)/2);
+        width: calc(1920px/1.2);
+        height: calc(1080px/1.2);
     }
 
     @include media-breakpoint-up(xl) {
+        top: 33.666%;
         left: calc(50vw - 1920px/2);
-        min-width: 1920px;
-        min-height: 1080px;
-        transform: translateX(0) translateY(-48%);
-    }
-
-    @media (min-width: 1921px) {
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        transform: translateX(-50%) translateY(-38%);
+        width: 1920px;
+        height: 1080px;
     }
 }
+
+// HTML5 VIDEO
+// .lv-hero .video-bg video {
+//     top: 50%;
+//     left: 50%;
+//     min-width: 100%;
+//     min-height: 100%;
+//     width: auto;
+//     height: auto;
+//     transform: translateX(-50%) translateY(-44%);
+
+//     @include media-breakpoint-up(sm) {
+//         transform: translateX(-50%) translateY(-40%);
+//     }
+
+//     @include media-breakpoint-up(md) {
+//         transform: translateX(-50%) translateY(-36%);
+//     }
+
+//     @include media-breakpoint-up(xl) {
+//         left: calc(50vw - 1920px/2);
+//         min-width: 1920px;
+//         min-height: 1080px;
+//         transform: translateX(0) translateY(-48%);
+//     }
+
+//     @media (min-width: 1921px) {
+//         left: 50%;
+//         min-width: 100%;
+//         min-height: 100%;
+//         transform: translateX(-50%) translateY(-38%);
+//     }
+// }
 
 .lv-hero .video-bg iframe,
 .lv-hero .video-bg video {
@@ -513,6 +510,10 @@ $hero-height-presets: (
         width: 103%;
         height: 303%;
     }
+}
+
+.lv-hero video {
+
 }
 
 // Notes: 16:9 is 1024x576, 720p is 1280x720, HD is 1920x1080

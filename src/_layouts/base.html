@@ -18,6 +18,11 @@
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
+
+    <!-- build:js({src,.}) /assets/scripts/jquery.js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap-validator/dist/validator.js"></script>
+    <!-- endbuild -->
 </head>
 <body class="{{ page.theme }}">
 
@@ -33,12 +38,14 @@
         <!-- BODY -->
         <div class="global-body">
 
-            {% include components/hero/hero_static.html
-                bg_image=page.hero_image
-                options=page.hero_options
-            %}
+            {% unless page.hero_image == null and page.hero_video == null %}
+                {% include components/hero/hero_static.html
+                    bg_image=page.hero_image
+                    options=page.hero_options
+                %}
+            {% endunless %}
 
-            <!-- { { content }} -->
+            {{ content }}
         </div>
 
         <!-- FOOTER -->
@@ -61,16 +68,18 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CIntersectionObserver"></script>
 
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/node_modules/bootstrap-validator/dist/validator.js"></script>
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
     <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="/node_modules/lozad/dist/lozad.js"></script>
     <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="/assets/scripts/date-picker.js"></script>
     <script src="/assets/scripts/liquidvisual/equal-height.js"></script>
     <script src="/assets/scripts/liquidvisual/headroom.js"></script>
     <script src="/assets/scripts/liquidvisual/hero-slider.js"></script>
@@ -81,6 +90,7 @@
     <!-- endbuild -->
 
     {% comment %}
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
         <script src="/node_modules/scrollax/scrollax.js"></script>
         <script src="/assets/scripts/liquidvisual/gallery.js"></script>
         <script src="/assets/scripts/slider.js"></script>

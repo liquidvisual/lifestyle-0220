@@ -25,7 +25,11 @@
     }
 
     .card-body {
-        padding: rem-calc(46);
+        padding: rem-calc(46 20);
+
+        @include media-breakpoint-up(md) {
+            padding: rem-calc(46);
+        }
     }
 
     &.is-flat {

@@ -2,8 +2,8 @@
   {
     "title": "That's Pie Country. They Do a Lot of Baking Up There.",
     "date": "05 June 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-01.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-1.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -19,8 +19,8 @@
   {
     "title": "What's the Deal with Airline Peanuts?",
     "date": "10 March 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-02.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-2.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -40,8 +40,8 @@
   {
     "title": "Nothing's Finer Than Being in Your Diner",
     "date": "09 August 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-03.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-1.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -51,8 +51,8 @@
   {
     "title": "Yadda Yadda Yadda",
     "date": "11 September 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-04.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-2.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -62,8 +62,8 @@
   {
     "title": "These Pretzels are Making Me Thirsty!",
     "date": "20 October 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-05.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-1.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -73,8 +73,8 @@
   {
     "title": "Is Anyone Here a Marine Biologist?",
     "date": "06 November 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-06.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-2.jpg",
     "author": {
       "name": "Joe Bloggs",
       "url": "#"
@@ -84,22 +84,22 @@
   {
     "title": "I Always Wanted to Pretend I Was an Architect",
     "date": "28 November 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-07.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-1.jpg",
     "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit omnis fugiat maxime at necessitatibus, quasi eligendi!\n\naecati odit, accusamus. At libero ipsam consectetur, iusto autem non excepturi doloribus voluptas architecto dolorum fugiat esse necessitatibus placeat, incidunt ipsum quisquam deleniti fugit aliquid numquam quas rem commodi nobis officia veritatis animi! Dolorum deserunt laborum!\n"
   },
   {
     "title": "It's the Summer of George",
     "date": "18 December 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-08.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-2.jpg",
     "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit architecto dolorum fugiat esse necessitatibus placeat, incidunt ipsum quisquam deleniti fugit aliquid numquam quas rem commodi nobis officia veritatis animi! Dolorum deserunt laborum nobis dolor voluptate a eaque rerum omnis sequi quaerat non accusantium nisi, commodi molestias, adipisci impedit neque dignissimos? Laudantium a hic aut explicabo consequuntur! Voluptas ab nesciunt aperiam nisi eligendi saepe, dolor illum id, necessitatibus, labore inventore!\n"
   },
   {
     "title": "When You Look Annoyed All the Time, People Think That You're Busy",
     "date": "19 September 2019",
-    "url": "/blog/blog-item/",
-    "image": "/assets/img/content/blog-thumbs/thumb-09.jpg",
+    "url": "/latest/latest-item/",
+    "image": "/assets/img/content/latest/placeholder-1.jpg",
     "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit omnis fugiat maxime at necessitatibus, quasi eligendi!\n"
   },
 ]

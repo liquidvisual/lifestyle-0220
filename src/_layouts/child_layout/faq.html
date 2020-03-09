@@ -2,6 +2,27 @@
 layout: base__page
 ---
 
+{% contentfor hero_caption %}
+    <!-- CAPTION TOP -->
+    <section class="section lv-hero-item-caption-top" style="overflow: visible;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-9 col-lg-7 col-xl-6">
+
+                    <!-- HEADER -->
+                    <h1 class="mt-4 mb-4">
+                    	<img width="100%" src="/assets/img/layout/header-any-questions.png" alt="Any Questions?">
+                    </h1>
+
+                    <!-- SCROLL PROMPT -->
+                    <a href="#why-personalise-coffins" class="lv-hero-scroll-prompt is-bottom hidden-lg-down"></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endcontentfor %}
+
 <!-- FAQ -->
 <section class="section">
 	<div class="container">
@@ -25,7 +46,7 @@ layout: base__page
 <section class="section pt-0">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-8">
+			<div class="col-md-10 col-lg-7">
 				{% include components/content/accordion.html data=page.accordion %}
 			</div>
 		</div>
@@ -38,7 +59,7 @@ layout: base__page
 		<div class="row justify-content-center">
 			<div class="col-md-11 text-center">
 				<p class="lead font-weight-lighter text-uppercase mb-0">
-					Feel free to call us for additional information on <strong>1800 003 456</strong>
+					Feel free to call us for additional information on <a class="text-body" href="tel:1800003456"><strong>1800 003 456</strong></a>
 				</p>
 			</div>
 		</div>
