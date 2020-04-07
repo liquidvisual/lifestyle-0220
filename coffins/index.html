@@ -293,7 +293,7 @@
                 <div class="lv-hero has-video align-items-start">
 
                     <!-- HERO ITEMS -->
-                    <div class="lv-hero-item has-video align-items-start" style="background-image: url('')">
+                    <div class="lv-hero-item has-video align-items-start" style="background-image: url('/assets/img/content/backgrounds/placeholder-02.jpg')">
 
                         <!-- HERO CAPTION -->
                         <div class="lv-hero-item-caption animated fadeInLeftSubtle">
@@ -310,43 +310,43 @@
                                 </div>
                             </section>
                         </div>
-                    </div>
-                    <a href="/coffins/" class="hidden-md-up">
-                        <img width="100%" src="/assets/video/content/video-1.jpg" alt="We are Lifestyle Coffins"> </a>
 
-                    <!-- HTML5 VIDEO PLUGIN - video should be 16:9 -->
-                    <div class="video-bg hidden-sm-down">
-                        <div class="video-fg">
+                        <!-- HTML5 VIDEO PLUGIN - video should be 16:9 -->
+                        <div class="video-bg hidden-sm-down">
+                            <div class="video-fg">
 
-                            <!-- HTML5 VIDEO -->
-                            <video autoplay loop muted hidden poster="">
+                                <!-- HTML5 VIDEO -->
+                                <video autoplay loop muted hidden poster="">
 
-                                <!-- <source src data-src="/assets/video/video-1.ogv" type="video/ogv"> -->
-                                <source src data-src="/assets/video/content/video-1.webm" type="video/webm">
-                                <source src data-src="/assets/video/content/video-1.mp4" type="video/mp4">
-                            </video>
+                                    <!-- <source src data-src="/assets/video/video-1.ogv" type="video/ogv"> -->
+                                    <source src data-src="/assets/video/content/video-1.webm" type="video/webm">
+                                    <source src data-src="/assets/video/content/video-1.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
-                    </div>
-                    <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        try {
-                            var videoBG = document.querySelectorAll('.video-bg video');
-                            // update sources dynamically
-                            videoBG.forEach(function(item) {
-                                item.querySelectorAll('video > source[data-src]').forEach(function(item) {
-                                    item.src = item.dataset.src;
+                        <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            try {
+                                var videoBG = document.querySelectorAll('.video-bg video');
+                                // update sources dynamically
+                                videoBG.forEach(function(item) {
+                                    item.querySelectorAll('video > source[data-src]').forEach(function(item) {
+                                        item.src = item.dataset.src;
+                                    });
+                                    item.onloadeddata = function() {
+                                        item.hidden = false;
+                                    };
+                                    item.load(); // for Chrome
                                 });
-                                item.onloadeddata = function() {
-                                    item.hidden = false;
-                                };
-                                item.load(); // for Chrome
-                            });
-                        } catch (err) {
-                            console.warn('Eek! Video error.')
-                        }
-                    });
-                    </script>
-                </div>
+                            } catch (err) {
+                                console.warn('Eek! Video error.')
+                            }
+                        });
+                        </script>
+                    </div>
+
+                    <!-- ./lv-hero-item -->
+                    </div>
 
                 <!-- /.lv-hero -->
                 </section>
