@@ -90,7 +90,7 @@ $hero-height-presets: (
     position: relative; // [LOCKED] - for non-js (?)
     width: 100%; // [LOCKED]
     // height: 100%;
-    // min-height: rem-calc(540); // curated
+    min-height: rem-calc(200); // curated
 // padding: rem-calc(45 0); //rem-calc(100 0);
     // background-color: #e1e1e1; //$primary;
     background-repeat: no-repeat;
@@ -127,15 +127,10 @@ $hero-height-presets: (
     }
 }
 
-//-----------------------------------------------------------------
-// IS-SHORT >> HERO-ITEM (INNER PAGES)
-//-----------------------------------------------------------------
-
-.is-short .lv-hero-item {
-    // height: 100%; // undo options placed on auto-height - this is slim banner
-    // min-height: 0;
-    // padding: rem-calc(0 0 45 0);
-    // padding: rem-calc(230 0 0 0);
+.lv-hero-item.has-video {
+    @media (min-width: 1895px) {
+        background-image: none !important;
+    }
 }
 
 //----------------------------------------------------------------- *****
@@ -147,7 +142,7 @@ $hero-height-presets: (
     width: 100%; // fill outer flex
     // font-size: rem-calc(17);
     color: white;
-    z-index: 1; // [LOCKED] - above tint
+    z-index: 5; // [LOCKED] - above tint
     // overflow-wrap: break-word;
     // word-wrap: break-word;
     // word-break: break-word;
@@ -158,13 +153,23 @@ $hero-height-presets: (
 .lv-hero-item-caption {
 
     .subheader {
-        font-size: rem-calc(34);
+        @include media-breakpoint-up(xl) {
+            font-size: rem-calc(34);
+        }
     }
 
     .btn-large {
-        font-size: rem-calc(40);
-        padding-left: rem-calc(50);
-        padding-right: rem-calc(50);
+        font-size: rem-calc(20);
+
+        @include media-breakpoint-up(md) {
+            font-size: rem-calc(30);
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: rem-calc(40);
+            padding-left: rem-calc(50);
+            padding-right: rem-calc(50);
+        }
     }
 }
 
@@ -396,6 +401,8 @@ $hero-height-presets: (
     // border: 2px dashed red;
     // z-index: -99;
     overflow: hidden; // *new*
+    border-bottom: 1px solid white;
+    z-index: 1;
 }
 
 .lv-hero .video-fg,
@@ -425,7 +432,7 @@ $hero-height-presets: (
 
     @include media-breakpoint-up(xl) {
         top: 33.666%;
-        left: calc(50vw - 1920px/2);
+        left: calc(50vw - 1920px/2 - 5px); // fixes weird bug
         width: 1920px;
         height: 1080px;
     }
@@ -510,10 +517,6 @@ $hero-height-presets: (
         width: 103%;
         height: 303%;
     }
-}
-
-.lv-hero video {
-
 }
 
 // Notes: 16:9 is 1024x576, 720p is 1280x720, HD is 1920x1080

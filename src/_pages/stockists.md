@@ -2,10 +2,9 @@
 layout: child_layout/stockists
 title: Stockists
 permalink: /stockists/
-#hero_image: /assets/img/content/backgrounds/placeholder-01.jpg
+hero_image: /assets/img/content/backgrounds/placeholder-01.jpg
 hero_options: has-video
 hero_video: video-1
-hero_video_fallback: video-1
 
 wysiwyg_1: |
   Lifestyle Coffins are available nationally through our network of reputable funeral homes.

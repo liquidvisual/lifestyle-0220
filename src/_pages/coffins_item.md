@@ -5,7 +5,6 @@ permalink: /coffins/coffins-item/
 hero_options: has-video align-items-center
 hero_image:
 hero_video: video-2
-hero_video_fallback: video-2
 hero_scroll_prompt: true
 
 wysiwyg_1: |

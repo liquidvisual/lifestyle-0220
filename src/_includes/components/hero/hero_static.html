@@ -27,17 +27,11 @@
                     {% contentblock hero_caption no-convert %}
                 {% endifhascontent %}
             </div>
-        </div>
 
-        {% if page.hero_video_fallback %}
-            <a href="/coffins/" class="hidden-md-up">
-                <img width="100%" src="/assets/video/content/{{ page.hero_video }}.jpg" alt="We are Lifestyle Coffins">
-            </a>
-        {% endif %}
+            {% if page.hero_video %}
+                {% include components/hero/hero__html5_video_plugin.html %}
+            {% endif %}
 
-        {% if page.hero_video %}
-            {% include components/hero/hero__html5_video_plugin.html %}
-        {% endif %}
-
+        </div> <!-- ./lv-hero-item -->
     </div> <!-- /.lv-hero -->
 </section> <!-- /.lv-hero-wrapper -->

@@ -5,7 +5,6 @@ permalink: /coffins/coffins-item/coffins-item/
 hero_options:
 hero_image: /assets/img/content/backgrounds/bg-05.jpg
 hero_video:
-hero_video_fallback:
 hero_scroll_prompt: true
 
 wysiwyg_1: |

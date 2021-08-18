@@ -4,9 +4,8 @@ title: Ash Box Designs
 permalink: /ash-boxes/
 
 hero_options: has-video align-items-start
-#hero_image: /assets/img/content/backgrounds/placeholder-02.jpg
+hero_image: /assets/img/content/backgrounds/placeholder-02.jpg
 hero_video: video-1
-hero_video_fallback: video-1
 hero_scroll_prompt: true
 
 wysiwyg_1: |
